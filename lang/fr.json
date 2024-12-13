@@ -1,0 +1,23 @@
+{
+    "Sign in": "Se connecter",
+    "Log out": "Se déconnecter",
+    "An error occurred during login.": "Une erreur s'est produite lors de la connexion.",
+    "Forgot password?": "Mot de passe oublié ?",
+    "Enter the email address associated with your account and we will send you a link to reset your password.": "Entrez l'adresse e-mail associée à votre compte et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+    "Email": "E-mail",
+    "Password": "Mot de passe",
+    "New password": "Nouveau mot de passe",
+    "New password confirmation": "Confirmation du nouveau mot de passe",
+    "Enter your new password": "Entrez votre nouveau mot de passe",
+    "Remember me": "Se souvenir de moi",
+    "Enter your password": "Entrez votre mot de passe",
+    "Enter your Email Or Username": "Entrez votre e-mail ou nom d'utilisateur",
+    "Email Or Username": "E-mail ou nom d'utilisateur",
+    "Sign in to your account to continue": "Connectez-vous à votre compte pour continuer",
+    "Remembered your password?": "Vous avez retrouvé votre mot de passe ?",
+    "Request Password Reset": "Demander la réinitialisation du mot de passe",
+    "Forgot your password?": "Vous avez oublié votre mot de passe ?",
+    "Reset password": "Réinitialiser le mot de passe",
+    "Enter your email": "Entrez votre e-mail",
+    "Dashboard": "Tableau de bord"
+}

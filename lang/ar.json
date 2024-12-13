@@ -1,0 +1,23 @@
+{
+    "Sign in": "تسجيل الدخول",
+    "Log out": "تسجيل الخروج",
+    "An error occurred during login.": "حدث خطأ أثناء تسجيل الدخول.",
+    "Forgot password?": "نسيت كلمة المرور؟",
+    "Enter the email address associated with your account and we will send you a link to reset your password.": "أدخل عنوان البريد الإلكتروني المرتبط بحسابك وسنرسل لك رابطًا لإعادة تعيين كلمة المرور.",
+    "Email": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "New password": "كلمة مرور جديدة",
+    "New password confirmation": "تأكيد كلمة المرور الجديدة",
+    "Enter your new password": "أدخل كلمة مرورك الجديدة",
+    "Remember me": "تذكرني",
+    "Enter your password": "أدخل كلمة مرورك",
+    "Enter your Email Or Username": "أدخل بريدك الإلكتروني أو اسم المستخدم",
+    "Email Or Username": "البريد الإلكتروني أو اسم المستخدم",
+    "Sign in to your account to continue": "تسجيل الدخول إلى حسابك للمتابعة",
+    "Remembered your password?": "هل تذكرت كلمة مرورك؟",
+    "Request Password Reset": "طلب إعادة تعيين كلمة المرور",
+    "Forgot your password?": "نسيت كلمة المرور؟",
+    "Reset password": "إعادة تعيين كلمة المرور",
+    "Enter your email": "أدخل بريدك الإلكتروني",
+    "Dashboard": "لوحة القيادة"
+}

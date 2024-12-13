@@ -1,0 +1,24 @@
+{
+    "Sign in": "Sign in",
+    "Log out": "Log out",
+    "An error occurred during login.": "An error occurred during login.",
+    "Forgot password?": "Forgot password?",
+    "Enter the email address associated with your account and we will send you a link to reset your password.": "Enter the email address associated with your account and we will send you a link to reset your password.",
+    "Email": "Email",
+    "Password": "Password",
+    "New password": "New password",
+    "New password confirmation": "New password confirmation",
+    "Enter your new password": "Enter your new password",
+    "Remember me": "Remember me",
+    "Enter your password": "Enter your password",
+    "Enter your Email Or Username": "Enter your Email Or Username",
+    "Email Or Username": "Email Or Username",
+    "Sign in to your account to continue": "Sign in to your account to continue",
+    "Remembered your password?": "Remembered your password?",
+    "Request Password Reset": "Request Password Reset",
+    "Forgot your password?": "Forgot your password?",
+    "Reset password": "Reset password",
+    "Enter your email": "Enter your email",
+    "Dashboard": "Dashboard"
+
+}

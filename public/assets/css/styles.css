@@ -1,0 +1,266 @@
+/* Modal styles */
+.modal-header {
+    border-bottom: 2px solid #eee;
+    padding: 1.5rem;
+    font-weight: bold;
+}
+
+.info-label {
+    font-weight: 500;
+    color: #666;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.guest-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.guest-card:hover {
+    background-color: #f8f9fa;
+}
+
+.modal-content {
+    /* height: 600px; */
+    overflow: auto;
+}
+
+.sidebar-nav.fc-direction-rtl {
+    padding-left: unset;
+    padding-right: 0;
+}
+
+.sidebar-nav.fc-direction-rtl .sidebar-link i,
+.sidebar-nav.fc-direction-rtl .sidebar-link svg,
+.sidebar-nav.fc-direction-rtl a.sidebar-link i,
+.sidebar-nav.fc-direction-rtl a.sidebar-link svg {
+    margin-right: unset;
+    margin-left: 0.75rem;
+}
+
+.phone-input-container {
+    /* max-width: 400px; */
+    position: relative;
+}
+
+.country-select img {
+    width: 20px;
+    height: 15px;
+    margin-right: 8px;
+}
+
+.country-select::after {
+    content: "";
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #6c757d;
+    margin-left: 8px;
+}
+
+.phone-number {
+    flex: 1;
+}
+
+.country-dropdown {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.country-option {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+}
+
+.country-option img {
+    width: 20px;
+    height: 15px;
+    margin-right: 8px;
+}
+
+.unified-input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.country-select {
+    border: none;
+    background: transparent;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.country-select:hover {
+    background-color: #f8f9fa;
+}
+
+.country-code {
+    padding: 6px 12px;
+    color: #495057;
+    border-left: 1px solid #ced4da;
+    border-right: 1px solid #ced4da;
+    background: transparent;
+}
+
+.phone-number {
+    border: none;
+    flex: 1;
+    padding: 6px 12px;
+}
+
+.phone-number:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.unified-input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.country-select {
+    border: none;
+    background: transparent;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.country-select:hover {
+    background-color: #f8f9fa;
+}
+
+.country-code {
+    padding: 6px 12px;
+    color: #495057;
+    border-left: 1px solid #ced4da;
+    border-right: 1px solid #ced4da;
+    background: transparent;
+}
+
+.phone-number {
+    border: none;
+    flex: 1;
+    padding: 6px 12px;
+}
+
+.phone-number:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.unified-input-group:focus-within {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.logo-wrapper {
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 0.25rem;
+}
+
+.file-info {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.upload-btn {
+    color: #3b82f6;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.upload-btn:hover {
+    background: #dbeafe;
+    border-color: #bfdbfe;
+}
+
+.logo-preview-container {
+    align-items: center;
+    gap: 15px;
+    margin-top: 12px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    display: none;
+}
+
+.logo-preview-container.show {
+    display: flex;
+}
+
+.logo-preview {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #f8f9fb;
+    padding: 3px;
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease;
+}
+
+.logo-preview:hover {
+    transform: scale(1.05);
+}
+
+.breadcrumb .breadcrumb-item {
+    font-size: 18px;
+}
+
+/* ------ rtl custimization begin ------- */
+html[dir="rtl"] div {
+    direction: rtl;
+}
+
+html[dir="rtl"] div.dataTables_wrapper div.dataTables_filter,
+html[dir="rtl"] .text-end {
+    text-align: left !important;
+}
+
+html[dir="rtl"] .breadcrumb-item + .breadcrumb-item:before {
+    color: var(--bs-breadcrumb-divider-color);
+    content: var(--bs-breadcrumb-divider, "\\");
+    float: right;
+    padding-left: var(--bs-breadcrumb-item-padding-x);
+}
+
+/* ------ rtl custimization end ------- */
+
+/* ------ Room list star ------- */
+#roomDetailsModal .modal-dialog {
+    max-width: 800px;
+}
+
+#roomDetailsModal .modal-content {
+    max-height: 80vh;
+    min-height: 400px;
+    overflow-y: auto;
+}
+
+#roomList {
+    width: 100%;
+}
+
+/* ------ Room list end ------- */
+.form-label {
+    font-weight: 500;
+}
