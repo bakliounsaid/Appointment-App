@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('states', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('country_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('code');
-            $table->string('ar_name')->nullable();
-            $table->string('fr_name')->nullable();
-            $table->string('en_name')->nullable();
+            $table->string('ar_name');
+            $table->string('fr_name');
         });
     }
 

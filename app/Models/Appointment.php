@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\Search;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
+    use HasFactory, Search;
     protected $fillable = [
         'firstname',
         'lastname',
@@ -27,6 +30,7 @@ class Appointment extends Model
         'city_id',
         'client_date',
         'admin_date',
+        'description',
     ];
 
     public function city()

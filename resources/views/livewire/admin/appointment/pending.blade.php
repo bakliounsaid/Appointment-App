@@ -1,15 +1,17 @@
 <main class="content">
+
     <div class="container-fluid p-0">
         <div class="mb-3">
-            {{ Breadcrumbs::render('franchise.airports.index') }}
+            <h1 class="h3 d-inline align-middle">{{ __('Appointments') }}</h1>
         </div>
         <div class="card">
             <div class="card-header pb-0 d-flex justify-content-between mb-4">
-                <h5 class="card-title mb-0">{{ __('Airports') }}</h5>
+
+                <h5 class="card-title mb-0">{{ __('Appointment') }}</h5>
                 <div class="card-actions ">
-                    <a class="btn btn-primary text-white" href="" tabindex="0" aria-controls="datatables-buttons"
+                    <a class="btn btn-primary text-white" href="{{ route('admin.appointments.pending') }}" tabindex="0" aria-controls="datatables-buttons"
                         type="button">
-                        <span>{{ __('Add New Airports') }}</span>
+                        <span>{{ __('Add New Appointment') }}</span>
                     </a>
                 </div>
             </div>
@@ -45,45 +47,41 @@
                             <table class="table table-striped no-footer dtr-inline" width="100%" style="width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('Code') }}</th>
-                                        <th>{{ __('Name') }}</th>
-                                        <th>{{ __('Type') }}</th>
+                                        <th>{{ __('Full Name') }}</th>
+                                        <th> {{ __('Full Name') }}</th>
                                         <th class="text-end">{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if ($airports->count())
-                                        @foreach ($airports as $airport)
+                                    @if ($franchises->count())
+                                        @foreach ($pending as $appointment)
                                             <tr>
-                                                <td>{{ $airport->code }}</td>
-                                                <td>{{ $airport->name }}</td>
-                                                <td>{{ $airport->type }}</td>
+                                                <td>{{ $appointment->firstaname }}</td>
+                                                <td>{{ $appointment->lastname }}</td>
                                                 <td class="text-end">
-                                                    <a href=""
-                                                        class="btn btn-primary btn-sm">{{ __('Edit') }}</a>
-                                                    <button class="btn btn-danger btn-sm" type="button"
-                                                        wire:click="$dispatch('delete-confirmation', { function:'delete',id: {{ $airport->id }},
-                                                            text: '{{ __('delete_flight_warning') }}' })">
-                                                        {{ __('Delete') }}
-                                                    </button>
+                                                    <a href="#"
+                                                        class="btn btn-primary btn-sm">{{ __('Edit') }}
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     @else
                                         @include('components.empty-table', [
-                                            'message' => __('No Airport has been found'),
-                                            'colspan' => 4,
+                                            'message' => __('No franchise has been found'),
+                                            'colspan' => 6,
                                         ])
                                     @endif
                                 </tbody>
                             </table>
                         </div>
-                        @if ($airports->count())
-                            {{ $airports->links() }}
+                        @if ($pending->count())
+                            {{ $pending->links() }}
                         @endif
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </main>
+

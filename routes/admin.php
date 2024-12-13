@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\Admin\Appointment\Archived;
+use App\Livewire\Admin\Appointment\Pending;
+use App\Livewire\Admin\Appointment\Validated;
 use App\Livewire\Admin\Franchise\Create as FranchiseCreate;
 use App\Livewire\Admin\Franchise\Show as FranchiseShow;
 use App\Livewire\Admin\Franchise\Index  as FranchiseIndex;
@@ -21,6 +24,11 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/', FranchiseIndex::class)->name('index');
         Route::get('/create', FranchiseCreate::class)->name('create');
         Route::get('/{franchise}', FranchiseShow::class)->name('show');
+    });
+    Route::prefix('appointments')->name('appointments.')->group(function () {
+        Route::get('/', Pending::class)->name('pending');
+        Route::get('/', Validated::class)->name('validated');
+        Route::get('/', Archived::class)->name('archived');
     });
 });
 

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('city_id')->constrained()->onDelete('cascade');
             $table->dateTime('client_date');
             $table->dateTime('admin_date')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

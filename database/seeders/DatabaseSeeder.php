@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+
+use App\Models\Status;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,8 +15,8 @@ class DatabaseSeeder extends Seeder
        $this->call(
         [
         AdminSeeder::class,
-        CountriesSeeder::class,
         StatesSeeder::class,
+        StatusSeeder::class,
         CitiesSeeder::class,
      ]);
     }

@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('state_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('ar_name')->nullable();
-            $table->string('fr_name')->nullable();
-            $table->string('en_name')->nullable();
+            $table->string('ar_name');
+            $table->string('fr_name');
         });
     }
 
