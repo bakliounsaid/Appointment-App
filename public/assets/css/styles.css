@@ -270,3 +270,7 @@ html[dir="rtl"] .breadcrumb-item + .breadcrumb-item:before {
     padding: 8px;
     vertical-align: top;
 }
+html[dir="rtl"] .badge-warning {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}

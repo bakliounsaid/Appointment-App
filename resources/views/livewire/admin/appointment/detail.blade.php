@@ -58,7 +58,7 @@
                             <label for="date" class="form-label">{{ __('Requested Date') }}</label>
                             <p class="form-control-plaintext" id="date">{{ $appointment->formatted_client_date }}</p>
                         </div>
-                        @if(now() > $appointment->admin_date)
+                        @if($appointment->admin_date && (now() > $appointment->admin_date))
                         <div class="col-md-6">
                             <label for="date" class="form-label">{{ __('Confirmed Date') }}</label>
                             <p class="form-control-plaintext" id="adminDate">{{ $appointment->formatted_admin_date }}</p>

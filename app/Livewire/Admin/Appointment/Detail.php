@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Admin\Appointment;
 
+use App\Mail\AppointmentNotification;
 use App\Models\Appointment;
 use App\Models\Status;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -50,6 +52,8 @@ class Detail extends Component
                 {
                  $this->appointment->statuses()->attach($this->confirmed->id);
                 }
+                if($this->appointment->email)
+                Mail::to($this->appointment->email)->send(new AppointmentNotification($this->appointment));
                 $this->appointment->admin_date = $this->adminDate;
                 $this->appointment->save();
                 alert()->success(__('Validated successfully'), __('Appointment validated successfully'));

@@ -82,7 +82,13 @@
     "Appointment archived successfully": "Rendez-vous archivé avec succès",
     "Archived successfully": "Archivé avec succès",
     "Could not archive this appointment!": "Impossible d'archiver ce rendez-vous !",
-    "Archive": "Archiver"
+    "Archive": "Archiver",
+    "Thank you for choosing our services!": "Merci d'avoir choisi nos services !",
+    "We are writing to inform you about your upcoming appointment.": "Nous vous écrivons pour vous informer de votre prochain rendez-vous.",
+    "Hello": "Bonjour",
+    "Appointment Notification": "Notification de Rendez-vous",
+    "We look forward to seeing you soon!" : "Nous avons hâte de vous voir bientôt!",
+    "Best regards": "Cordialement"
 
 
 
