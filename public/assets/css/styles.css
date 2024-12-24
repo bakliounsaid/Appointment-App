@@ -264,3 +264,9 @@ html[dir="rtl"] .breadcrumb-item + .breadcrumb-item:before {
 .form-label {
     font-weight: 500;
 }
+
+.border-cell {
+    border: 2px solid black;
+    padding: 8px;
+    vertical-align: top;
+}

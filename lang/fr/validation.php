@@ -152,4 +152,14 @@ return [
     'uploaded' => 'Le champ :attribute n\'a pas pu être téléchargé.',
     'url' => 'Le champ :attribute doit être une URL valide.',
     'uuid' => 'Le champ :attribute doit être un UUID valide.',
+    'attributes' => [
+    'adminDate' => "Date de validation",
+    'date' => 'Date',
+    'city' => 'Ville',
+    'state' => 'État',
+    'phone' => 'Téléphone',
+    'firstname' => 'Prénom',
+    'lastname' => 'Nom de famille',
+  ],
 ];
+

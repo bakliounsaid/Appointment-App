@@ -14,11 +14,6 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-end @if (\App::currentLocale() == 'ar') fc-direction-rtl @endif"
                         aria-labelledby="languageDropdown">
-                        <a class="dropdown-item" href="#" wire:click.prevent="setLocale('en')">
-                            <img src="{{ asset('assets/img/flags/en.png') }}" alt="English" width="20"
-                                class="align-middle me-1">
-                            <span class="align-middle">English</span>
-                        </a>
                         <a class="dropdown-item" href="#" wire:click.prevent="setLocale('ar')">
                             <img src="{{ asset('assets/img/flags/ar.png') }}" alt="العربية" width="20"
                                 class="align-middle me-1">
@@ -38,18 +33,12 @@
                     </a>
                     <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                         data-bs-toggle="dropdown">
-                        <img src="{{ asset('assets/img/avatars/avatar.jpg') }}" class="avatar img-fluid rounded me-1"
+                        <img src="{{ asset('assets/img/photos/logo.jpg') }}" class="avatar img-fluid rounded me-1"
                             alt="{{ $admin->name }}" />
                         <span class="text-dark">{{ $admin->name }}</span>
                     </a>
                     <div
                         class="dropdown-menu dropdown-menu-end @if (\App::currentLocale() == 'ar') fc-direction-rtl @endif">
-                        <a class="dropdown-item" href="#">
-                            <i class="align-middle me-1" data-feather="user"></i> {{ __('Profile') }}
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy
-                        </a>
                         <a class="dropdown-item" href="#" wire:click.prevent="logout">
                             <i class="align-middle me-1" data-feather="log-out"></i> {{ __('Log out') }}
                         </a>

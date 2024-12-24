@@ -23,6 +23,7 @@ return new class extends Migration
             $table->dateTime('client_date');
             $table->dateTime('admin_date')->nullable();
             $table->text('description')->nullable();
+            $table->boolean('seen')->default(false);
             $table->timestamps();
         });
     }

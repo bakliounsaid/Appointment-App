@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Chaima Rideaux</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="{{ asset('assets/img/icons/icon-48x48.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/img/photos/logo.jpg') }}" />
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
@@ -20,7 +20,6 @@
 
 <body @if (\App::currentLocale() == 'ar') data-sidebar-position="right" class="fc-direction-rtl" @endif>
     <div class="wrapper">
-        {{-- The guard should be 'admin' --}}
         @auth('admin')
             @livewire('admin.layout.sidebar')
             <div class="main">

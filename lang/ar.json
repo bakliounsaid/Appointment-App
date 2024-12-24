@@ -19,5 +19,87 @@
     "Forgot your password?": "نسيت كلمة المرور؟",
     "Reset password": "إعادة تعيين كلمة المرور",
     "Enter your email": "أدخل بريدك الإلكتروني",
-    "Dashboard": "لوحة القيادة"
+    "Dashboard": "لوحة القيادة",
+    "You will be contacted soon.": "سيتم الاتصال بك قريبًا.",
+    "Appointment successfully registered!": "تم تسجيل الموعد بنجاح!",
+    "Take Appointment": "حجز موعد",
+    "The placement fee is 3000 Da and must be deducted from the overall quotation": "تكاليف التنقل تبلغ 3000 دج و سيتم خصمها من العرض الإجمالي لاحقًا.",
+    "Note": "ملاحظة",
+    "Description": "الوصف",
+    "Date": "التاريخ",
+    "Localisation": "الموقع",
+    "Address": "العنوان",
+    "Select City": "اختيار المدينة",
+    "Select State": "اختيار الولاية",
+    "City": "المدينة",
+    "State": "الولاية",
+    "Phone": "الهاتف",
+    "Lastname": "اللقب",
+    "Firstname": "الاسم",
+    "Request an appointment to discuss your work-related needs": "طلب موعد لمناقشة احتياجاتك المتعلقة بالعمل",
+    "Request an Appointment": "طلب موعد",
+    "Contact": "اتصال",
+    "Home": "الصفحة الرئيسية",
+    ".All rights reserved.": ".جميع الحقوق محفوظة.",
+    "Contact Information": "معلومات الاتصال",
+    "Appointment Created successfully!": "تم إنشاء الموعد بنجاح!",
+    "Could not create this appointment!": "تعذر إنشاء هذا الموعد!",
+    "showing_entries": "عرض من :from إلى :to من أصل :total مدخلات",
+    "Pending Appointments": "المواعيد المعلقة",
+    "Search": "بحث",
+    "Appointments": "المواعيد",
+    "No Appointment Request has been found": "لم يتم العثور على أي طلب موعد",
+    "Archived Appointments": "المواعيد المؤرشفة",
+    "Comfirmed Appointments": "المواعيد المؤكدة",
+    "Actions": "الإجراءات",
+    "Requested Date": "التاريخ المطلوب",
+    "Edit": "تعديل",
+    "No Archived Appointment has been found": "لم يتم العثور على أي موعد مؤرشف",
+    "Confirmed Date": "تاريخ التأكيد",
+    "No Validated Appointment has been found": "لم يتم العثور على أي موعد مؤكد",
+    "No Request Appointment has been found": "لم يتم العثور على أي طلب موعد",
+    "Admin": "مشرف",
+    "Calandar" :"التقويم",
+    "Client Information": "معلومات العميل",
+    "Appointment Detail": "تفاصيل الموعد",
+    "Validate": "تأكيد",
+    "Validated successfully": "تم التأكيد بنجاح",
+    "Appointment validated successfully": "تم تأكيد  الموعد بنجاح",
+    "Could not validate this appointment!": "لم يتمكن من تأكيد  هذا الموعد!",
+    "Could not make more then foor appointments in same day!":"لا يمكن إجراء أكثر من أربعة مواعيد في نفس اليوم!",
+     "Appointment deleted successfully!": "تم حذف الموعد بنجاح!",
+    "Could not delete this Appointment!": "تعذر حذف هذا الموعد!",
+    "delete_appointment_warning": "هل أنت متأكد من أنك تريد حذف هذا الموعد؟ هذا الإجراء غير قابل للتراجع.",
+    "Delete": "حذف",
+    "Cancel": "إلغاء",
+    "Yes, delete it!": "نعم، احذفه!",
+    "Delete confirmation": "تأكيد الحذف",
+    "Requests Not Viewed": "الطلبات غير مُشاهَدة",
+    "Statistics": "إحصائيات",
+    "entries": "المدخلات",
+    "Français": "فرنسية",
+    "Arabic": "عربية",
+    "To" :"إلى",
+    "From" :"من",
+    "Appointment archived successfully": "تم أرشفة الموعد بنجاح",
+    "Archived successfully": "تمت الأرشفة بنجاح",
+    "Could not archive this appointment!": "تعذر أرشفة هذا الموعد!",
+     "Archive": "أرشفة"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

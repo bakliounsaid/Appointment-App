@@ -1,11 +1,10 @@
 <?php
 
 use App\Livewire\Admin\Appointment\Archived;
+use App\Livewire\Admin\Appointment\Detail;
 use App\Livewire\Admin\Appointment\Pending;
+use App\Livewire\Admin\Appointment\Program;
 use App\Livewire\Admin\Appointment\Validated;
-use App\Livewire\Admin\Franchise\Create as FranchiseCreate;
-use App\Livewire\Admin\Franchise\Show as FranchiseShow;
-use App\Livewire\Admin\Franchise\Index  as FranchiseIndex;
 use App\Livewire\Admin\Index;
 use App\Livewire\Admin\Auth\Login;
 use App\Livewire\Admin\Auth\ForgotPassword;
@@ -20,16 +19,14 @@ Route::middleware('guest:admin')->as('auth.')->group(function () {
 });
 Route::middleware('auth:admin')->group(function () {
     Route::get('/', Index::class)->name('dashboard');
-    Route::prefix('franchises')->name('franchises.')->group(function () {
-        Route::get('/', FranchiseIndex::class)->name('index');
-        Route::get('/create', FranchiseCreate::class)->name('create');
-        Route::get('/{franchise}', FranchiseShow::class)->name('show');
-    });
     Route::prefix('appointments')->name('appointments.')->group(function () {
-        Route::get('/', Pending::class)->name('pending');
-        Route::get('/', Validated::class)->name('validated');
-        Route::get('/', Archived::class)->name('archived');
+        Route::get('/pending', Pending::class)->name('pending');
+        Route::get('/validated', Validated::class)->name('validated');
+        Route::get('/archived', Archived::class)->name('archived');
+        Route::get('/{appointment}', Detail::class)->name('show');
+        Route::get('program', Program::class)->name('program');
     });
+    Route::get('/program', Program::class)->name('program');
 });
 
 

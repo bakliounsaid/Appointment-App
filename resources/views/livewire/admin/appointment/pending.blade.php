@@ -7,13 +7,7 @@
         <div class="card">
             <div class="card-header pb-0 d-flex justify-content-between mb-4">
 
-                <h5 class="card-title mb-0">{{ __('Appointment') }}</h5>
-                <div class="card-actions ">
-                    <a class="btn btn-primary text-white" href="{{ route('admin.appointments.pending') }}" tabindex="0" aria-controls="datatables-buttons"
-                        type="button">
-                        <span>{{ __('Add New Appointment') }}</span>
-                    </a>
-                </div>
+                <h5 class="card-title mb-0">{{ __('Pending Appointments') }}</h5>
             </div>
 
             <div class="card-body">
@@ -47,27 +41,40 @@
                             <table class="table table-striped no-footer dtr-inline" width="100%" style="width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('Full Name') }}</th>
-                                        <th> {{ __('Full Name') }}</th>
+                                        <th>{{ __('Firstname') }}</th>
+                                        <th> {{ __('Lastname') }}</th>
+                                        <th> {{ __('Phone') }} </th>
+                                        <th> {{ __('City') }}</th>
+                                        <th> {{ __('State') }}</th>
+                                        <th> {{ __('Requested Date') }}</th>
                                         <th class="text-end">{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if ($franchises->count())
+                                    @if ($pending->count())
                                         @foreach ($pending as $appointment)
                                             <tr>
-                                                <td>{{ $appointment->firstaname }}</td>
+                                                <td>{{ $appointment->firstname }}</td>
                                                 <td>{{ $appointment->lastname }}</td>
+                                                <td>{{ $appointment->phone}} </td>
+                                                <td>{{ $appointment->city->{$language.'_name'} }}</td>
+                                                <td>{{ $appointment->city->state->{$language.'_name'} }}</td>
+                                                <td>{{ $appointment->formatted_client_date }} </td>
                                                 <td class="text-end">
-                                                    <a href="#"
+                                                    <a href="{{ route('admin.appointments.show', $appointment->id) }}"
                                                         class="btn btn-primary btn-sm">{{ __('Edit') }}
                                                     </a>
+                                                    <button class="btn btn-danger btn-sm" type="button"
+                                                        wire:click="$dispatch('delete-confirmation', { function:'delete',id: {{ $appointment->id }},
+                                                          text: '{{ __("delete_appointment_warning") }}'})">
+                                                        {{ __('Delete') }}
+                                                    </button>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     @else
                                         @include('components.empty-table', [
-                                            'message' => __('No franchise has been found'),
+                                            'message' => __('No Request Appointment has been found'),
                                             'colspan' => 6,
                                         ])
                                     @endif

@@ -189,6 +189,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+      'adminDate' => "Validation date"
+    ],
 
 ];

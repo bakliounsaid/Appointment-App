@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Search;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,7 +22,7 @@ class Appointment extends Model
         'admin_date',
     ];
     protected $searchable_attributes = [
-      'firstname',
+        'firstname',
         'lastname',
         'phone',
         'email',
@@ -40,6 +41,29 @@ class Appointment extends Model
     public function statuses()
     {
         return $this->belongsToMany(Status::class, 'appointment_status')
-                    ->withTimestamps();
+            ->withPivot('created_at')
+            ->withTimestamps();
+    }
+    public function latestStatus()
+    {
+        return $this->hasOne(AppointmentStatus::class)->latestOfMany();
+    }
+    public function getFormattedClientDateAttribute()
+    {
+
+        return Carbon::parse($this->client_date)
+            ->locale(app()->getLocale() === 'fr' ? 'fr' : 'ar')
+            ->isoFormat('dddd, YYYY-MM-DD');
+    }
+    public function getFormattedAdminDateAttribute()
+    {
+        return Carbon::parse($this->admin_date)
+            ->locale(app()->getLocale() === 'fr' ? 'fr' : 'ar')
+            ->isoFormat('dddd, YYYY-MM-DD');
+    }
+    protected function getNameAttribute()
+    {
+       return  $this->firstname . ' ' . $this->lastname;
+
     }
 }

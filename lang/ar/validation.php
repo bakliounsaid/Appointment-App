@@ -185,5 +185,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'adminDate' => "تاريخ التأكيد",
+        'date' => 'التاريخ',
+        'city' => 'المدينة',
+        'state' => 'الولاية',
+        'phone' => 'الهاتف',
+        'firstname' => 'الاسم الأول',
+        'lastname' => 'اسم العائلة',
+    ],
 ];
