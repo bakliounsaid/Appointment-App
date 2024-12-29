@@ -26,6 +26,7 @@ class Index extends Component
     public $locale;
     public $date;
     public $pending;
+    public $windows;
     public $successPage = false;
 
     protected $rules = [
@@ -39,6 +40,7 @@ class Index extends Component
         'location'     => 'nullable|string|max:255',
         'description'  => 'nullable|string|max:1000',
         'date' => 'required|date',
+        'windows'=> 'integer|min:1'
     ];
 
     public function mount()
@@ -61,8 +63,7 @@ class Index extends Component
     }
     public function save()
     {
-        $this->dispatch('new-appointment');
-      //  $this->validate();
+        $this->validate();
 
         try {
             $appointment = new Appointment();
@@ -73,6 +74,7 @@ class Index extends Component
             $appointment->localisation = $this->localisation  ?? null;
             $appointment->address      = $this->address ?? null;
             $appointment->description      = $this->description ?? null;
+            $appointment->windows = $this->windows;
             $appointment->client_date  = $this->date;
             $appointment->city()->associate($this->city);
             $appointment->save();
@@ -85,6 +87,7 @@ class Index extends Component
             ]);
             $this->successPage = true;
         } catch (Throwable $th) {
+            dd($th);
             Log::alert($th->getMessage());
             $this->dispatch('show-toast-alert', [
                 "text" => __('Could not create this appointment!'),

@@ -14,10 +14,12 @@ class StatusSeeder extends Seeder
     public function run(): void
     {
         $statuses = [
-            ['name' => 'In Progress', 'class' => 'bg-warning'],
-            ['name' => 'Validated', 'class' => 'bg-success'],
-            ['name' => 'Archived', 'class' => 'bg-danger'],
+            ['name' => 'Pending', 'class' => 'bg-warning text-dark'],
+            ['name' => 'Validated', 'class' => 'bg-primary text-white'],
+            ['name' => 'Ongoing', 'class' => 'bg-info text-white'],
+            ['name' => 'Archived', 'class' => 'bg-secondary text-white'],
         ];
+
 
         foreach ($statuses as $status) {
             Status::updateOrCreate(['name' => $status['name']], $status);

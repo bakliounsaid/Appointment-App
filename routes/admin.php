@@ -2,6 +2,8 @@
 
 use App\Livewire\Admin\Appointment\Archived;
 use App\Livewire\Admin\Appointment\Detail;
+use App\Livewire\Admin\Appointment\Ongoing;
+use App\Livewire\Admin\Appointment\OngoingCalendar;
 use App\Livewire\Admin\Appointment\Pending;
 use App\Livewire\Admin\Appointment\Program;
 use App\Livewire\Admin\Appointment\Validated;
@@ -23,10 +25,12 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/pending', Pending::class)->name('pending');
         Route::get('/validated', Validated::class)->name('validated');
         Route::get('/archived', Archived::class)->name('archived');
+        Route::get('/ongonig', Ongoing::class)->name('ongoing');
         Route::get('/{appointment}', Detail::class)->name('show');
         Route::get('program', Program::class)->name('program');
     });
     Route::get('/program', Program::class)->name('program');
+    Route::get('/calendar', OngoingCalendar::class)->name('calendar');
 });
 
 

@@ -49,7 +49,6 @@
     "Search": "بحث",
     "Appointments": "المواعيد",
     "No Appointment Request has been found": "لم يتم العثور على أي طلب موعد",
-    "Archived Appointments": "المواعيد المؤرشفة",
     "Comfirmed Appointments": "المواعيد المؤكدة",
     "Actions": "الإجراءات",
     "Requested Date": "التاريخ المطلوب",
@@ -59,53 +58,51 @@
     "No Validated Appointment has been found": "لم يتم العثور على أي موعد مؤكد",
     "No Request Appointment has been found": "لم يتم العثور على أي طلب موعد",
     "Admin": "مشرف",
-    "Calandar" :"التقويم",
+    "Calandar": "التقويم",
     "Client Information": "معلومات العميل",
     "Appointment Detail": "تفاصيل الموعد",
     "Validate": "تأكيد",
     "Validated successfully": "تم التأكيد بنجاح",
     "Appointment validated successfully": "تم تأكيد  الموعد بنجاح",
     "Could not validate this appointment!": "لم يتمكن من تأكيد  هذا الموعد!",
-    "Could not make more then foor appointments in same day!":"لا يمكن إجراء أكثر من أربعة مواعيد في نفس اليوم!",
-     "Appointment deleted successfully!": "تم حذف الموعد بنجاح!",
+    "Could not make more then foor appointments in same day!": "لا يمكن إجراء أكثر من أربعة مواعيد في نفس اليوم!",
+    "Appointment deleted successfully!": "تم حذف الموعد بنجاح!",
     "Could not delete this Appointment!": "تعذر حذف هذا الموعد!",
     "delete_appointment_warning": "هل أنت متأكد من أنك تريد حذف هذا الموعد؟ هذا الإجراء غير قابل للتراجع.",
     "Delete": "حذف",
     "Cancel": "إلغاء",
     "Yes, delete it!": "نعم، احذفه!",
     "Delete confirmation": "تأكيد الحذف",
-    "Requests Not Viewed": "الطلبات غير مُشاهَدة",
+    "Requests Not Viewed": "المواعيد غير مُشاهَدة",
     "Statistics": "إحصائيات",
     "entries": "المدخلات",
     "Français": "فرنسية",
     "Arabic": "عربية",
-    "To" :"إلى",
-    "From" :"من",
+    "To": "إلى",
+    "From": "من",
     "Appointment archived successfully": "تم أرشفة الموعد بنجاح",
     "Archived successfully": "تمت الأرشفة بنجاح",
     "Could not archive this appointment!": "تعذر أرشفة هذا الموعد!",
-     "Archive": "أرشفة",
-     "Thank you for choosing our services!": "شكراً لاختياركم خدماتنا!",
-     "We are writing to inform you about your upcoming appointment.": "نكتب لكم لإبلاغكم عن موعدكم القادم.",
-     "Hello": "مرحباً",
-     "Appointment Notification": "إشعار بالموعد",
-     "We look forward to seeing you soon!" : "نتطلع لرؤيتك قريباً!",
-     "Best regards" : "مع أطيب التحيات"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "Archive": "أرشفة",
+    "Show": "عرض",
+    "No appointments": "لا توجد مواعيد",
+    "Your Appointment Details": "تفاصيل موعدك",
+    "Windows Number": "عدد النوافذ",
+    "Ongoing Commands": "الطلبات  قيد الإنجاز",
+    "Archived Commands": "الطلبات المؤرشفة",
+    "Appointment Information": "معلومات الموعد",
+    "Assembly Date": "تاريخ التركيب",
+    "Confirm Appointment": "تأكيد الموعد",
+    "Edit Appointment Date": "تعديل تاريخ الموعد",
+    "Ongoing": "قيد التنفيذ",
+    "Assembly confirmed successfully": "تم تأكيد التنفيذ بنجاح",
+    "Assembly successfully": "تم التنفيذ بنجاح",
+    "Commands": "طلبات",
+    "Assembly date confirmed successfully": "تم تأكيد تاريخ التركيب بنجاح",
+    "Could not make more than four assembly in the same day!": "لا يمكن إجراء أكثر من أربعة تركيبات في نفس اليوم!",
+    "Assembly Calendar": "تقويم التركيب",
+    "Appointment Calendar": "تقويم المواعيد",
+    "No assembly commands have been found": "لم يتم العثور على أي أوامر تركيب قيد التنفيذ",
+    "Could not make more then foor assembly in same day!":"لا يمكن إجراء أكثر من أربعة تركيبات في نفس اليوم!"
 
 }

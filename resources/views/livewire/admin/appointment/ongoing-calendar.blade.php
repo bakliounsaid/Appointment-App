@@ -2,7 +2,7 @@
 
     <div class="container-fluid p-0">
         <div class="mb-3">
-            <h1 class="h3 d-inline align-middle">{{ __('Appointment Calendar') }}</h1>
+            <h1 class="h3 d-inline align-middle">{{ __('Assembly Calendar') }}</h1>
         </div>
         <div class="card" id="printCard">
             <div class="card-header pb-0 d-flex justify-content-between mb-4">
@@ -30,10 +30,10 @@
                                         <tr>
                                             @foreach ($nextSevenDays as $day)
                                                 <td class="border-cell">
-                                                    @if (isset($this->validated[$day['date']]) && $this->validated[$day['date']]->isNotEmpty())
+                                                    @if (isset($this->ongoing[$day['date']]) && $this->ongoing[$day['date']]->isNotEmpty())
                                                         <ol class="m-0 p-0"
                                                             style="list-style-position: inside; font-size: 14px;">
-                                                            @foreach ($this->validated[$day['date']] as $appointment)
+                                                            @foreach ($this->ongoing[$day['date']] as $appointment)
                                                                 <li
                                                                     style="padding-bottom: 10px; border-bottom: 1px solid #ddd; margin-bottom: 10px;">
                                                                     <a href="{{ route('admin.appointments.show', $appointment->id) }}"

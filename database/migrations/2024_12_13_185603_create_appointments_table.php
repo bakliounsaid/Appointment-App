@@ -20,8 +20,10 @@ return new class extends Migration
             $table->string('localisation')->nullable();
             $table->string('address')->nullable();
             $table->foreignId('city_id')->constrained()->onDelete('cascade');
-            $table->dateTime('client_date');
-            $table->dateTime('admin_date')->nullable();
+            $table->date('client_date');
+            $table->date('admin_date')->nullable();
+            $table->date('assembly_date')->nullable();
+            $table->integer('windows')->nullable();
             $table->text('description')->nullable();
             $table->boolean('seen')->default(false);
             $table->timestamps();

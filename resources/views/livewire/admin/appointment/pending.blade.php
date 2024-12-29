@@ -38,6 +38,7 @@
 
                     <div class="row dt-row">
                         <div class="col-sm-12">
+                            <div class="table-responsive">
                             <table class="table table-striped no-footer dtr-inline" width="100%" style="width: 100%;">
                                 <thead>
                                     <tr>
@@ -46,7 +47,7 @@
                                         <th> {{ __('Phone') }} </th>
                                         <th> {{ __('City') }}</th>
                                         <th> {{ __('State') }}</th>
-                                        <th> {{ __('Requested Date') }}</th>
+                                        <th> {{ __('Windows Number') }}</th>
                                         <th class="text-end">{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
@@ -59,10 +60,10 @@
                                                 <td>{{ $appointment->phone}} </td>
                                                 <td>{{ $appointment->city->{$language.'_name'} }}</td>
                                                 <td>{{ $appointment->city->state->{$language.'_name'} }}</td>
-                                                <td>{{ $appointment->formatted_client_date }} </td>
+                                                <td>{{ $appointment->windows}} </td>
                                                 <td class="text-end">
                                                     <a href="{{ route('admin.appointments.show', $appointment->id) }}"
-                                                        class="btn btn-primary btn-sm">{{ __('Edit') }}
+                                                        class="btn btn-primary btn-sm">{{ __('Show') }}
                                                     </a>
                                                     <button class="btn btn-danger btn-sm" type="button"
                                                         wire:click="$dispatch('delete-confirmation', { function:'delete',id: {{ $appointment->id }},
@@ -80,6 +81,7 @@
                                     @endif
                                 </tbody>
                             </table>
+                          </div>
                         </div>
                         @if ($pending->count())
                             {{ $pending->links() }}

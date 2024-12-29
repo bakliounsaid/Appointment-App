@@ -21,9 +21,28 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <h1 class="mt-1 mb-3">{{ $this->pendingNotViewed }}</h1>
+                                                <h1 class="mt-1 mb-3">{{ $this->pending }}</h1>
                                             </div>
                                         </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col mt-0">
+                                                        <h5 class="card-title">{{ __('Ongoing Commands') }}</h5>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <div class="stat text-primary">
+                                                            <i class="align-middle" data-feather="award"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h1 class="mt-1 mb-3">{{ $this->ongoing }}</h1>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="row">
@@ -40,29 +59,11 @@
                                                 <h1 class="mt-1 mb-3">{{ $this->validated }}</h1>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col mt-0">
-                                                        <h5 class="card-title">{{ __('Requests Not Viewed') }}</h5>
-                                                    </div>
-
-                                                    <div class="col-auto">
-                                                        <div class="stat text-primary">
-                                                            <i class="align-middle" data-feather="book"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h1 class="mt-1 mb-3">{{ $this->pendingNotViewed }}</h1>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col mt-0">
-                                                        <h5 class="card-title">{{ __('Archived Appointments') }}</h5>
+                                                        <h5 class="card-title">{{ __('Archived Commands') }}</h5>
                                                     </div>
 
                                                     <div class="col-auto">

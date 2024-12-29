@@ -2,12 +2,12 @@
 
     <div class="container-fluid p-0">
         <div class="mb-3">
-            <h1 class="h3 d-inline align-middle">{{ __('Appointments') }}</h1>
+            <h1 class="h3 d-inline align-middle">{{ __('Commands') }}</h1>
         </div>
         <div class="card">
             <div class="card-header pb-0 d-flex justify-content-between mb-4">
 
-                <h5 class="card-title mb-0">{{ __('Comfirmed Appointments') }}</h5>
+                <h5 class="card-title mb-0">{{ __('Ongoing Commands') }}</h5>
             </div>
 
             <div class="card-body">
@@ -48,45 +48,43 @@
                                         <th> {{ __('City') }}</th>
                                         <th> {{ __('State') }}</th>
                                         <th> {{ __('Windows Number') }}</th>
-                                         <th> {{ __('Confirmed Date') }}</th>
                                         <th class="text-end">{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if ($validated->count())
-                                        @foreach ($validated as $appointment)
+                                    @if ($ongoing->count())
+                                        @foreach ($ongoing as $appointment)
                                             <tr>
                                                 <td>{{ $appointment->firstname }}</td>
                                                 <td>{{ $appointment->lastname }}</td>
                                                 <td>{{ $appointment->phone}} </td>
                                                 <td>{{ $appointment->city->{$language.'_name'} }}</td>
                                                 <td>{{ $appointment->city->state->{$language.'_name'} }}</td>
-                                                <td>{{ $appointment->windows }} </td>
-                                                <td>{{ $appointment->formatted_admin_date }} </td>
+                                                <td>{{ $appointment->windows}} </td>
                                                 <td class="text-end">
                                                     <a href="{{ route('admin.appointments.show', $appointment->id) }}"
                                                         class="btn btn-primary btn-sm">{{ __('Show') }}
                                                     </a>
-                                                     <button class="btn btn-danger btn-sm" type="button"
-                                                    wire:click="$dispatch('delete-confirmation', { function:'delete',id: {{ $appointment->id }},
-                                                      text: '{{ __("delete_appointment_warning") }}'})">
-                                                    {{ __('Delete') }}
-                                                  </button>
+                                                    <button class="btn btn-danger btn-sm" type="button"
+                                                        wire:click="$dispatch('delete-confirmation', { function:'delete',id: {{ $appointment->id }},
+                                                          text: '{{ __("delete_appointment_warning") }}'})">
+                                                        {{ __('Delete') }}
+                                                    </button>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     @else
                                         @include('components.empty-table', [
-                                            'message' => __('No Validated Appointment has been found'),
-                                            'colspan' => 7,
+                                            'message' => __('No assembly Commands has been found'),
+                                            'colspan' => 6,
                                         ])
                                     @endif
                                 </tbody>
                             </table>
+                          </div>
                         </div>
-                        </div>
-                        @if ($validated->count())
-                            {{ $validated->links() }}
+                        @if ($ongoing->count())
+                            {{ $ongoing->links() }}
                         @endif
                     </div>
                 </div>
@@ -95,4 +93,3 @@
 
     </div>
 </main>
-

@@ -45,13 +45,15 @@
 
 <script>
     const header = document.querySelector('.hp-header');
-
     window.addEventListener('scroll', () => {
         if (window.scrollY > 10) {
             header.classList.add("scrolled");
         } else {
             header.classList.remove("scrolled");
         }
+    });
+    document.querySelector('form').addEventListener('submit', () => {
+        window.scrollTo(0, 0);
     });
 </script>
 

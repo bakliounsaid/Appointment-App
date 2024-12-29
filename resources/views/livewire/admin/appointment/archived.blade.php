@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header pb-0 d-flex justify-content-between mb-4">
 
-                <h5 class="card-title mb-0">{{ __('Archived Appointments') }}</h5>
+                <h5 class="card-title mb-0">{{ __('Archived Commands') }}</h5>
             </div>
 
             <div class="card-body">
@@ -38,6 +38,7 @@
 
                     <div class="row dt-row">
                         <div class="col-sm-12">
+                            <div class="table-responsive">
                             <table class="table table-striped no-footer dtr-inline" width="100%" style="width: 100%;">
                                 <thead>
                                     <tr>
@@ -64,7 +65,7 @@
                                                 <td>{{ $appointment->formatted_admin_date }} </td>
                                                 <td class="text-end">
                                                     <a href="{{ route('admin.appointments.show', $appointment->id) }}"
-                                                        class="btn btn-primary btn-sm">{{ __('Edit') }}
+                                                        class="btn btn-primary btn-sm">{{ __('Show') }}
                                                     </a>
                                                     <button class="btn btn-danger btn-sm" type="button"
                                                     wire:click="$dispatch('delete-confirmation', { function:'delete',id: {{ $appointment->id }},
@@ -83,6 +84,7 @@
                                     @endif
                                 </tbody>
                             </table>
+                        </div>
                         </div>
                         @if ($archived->count())
                             {{ $archived->links() }}

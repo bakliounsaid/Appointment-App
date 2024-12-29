@@ -29,16 +29,28 @@
                         <span class="align-middle">{{ __('Comfirmed Appointments') }}</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->routeIs('admin.appointments.ongoing') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{ route('admin.appointments.ongoing') }}">
+                        <i class="align-middle" data-feather="award"></i>
+                        <span class="align-middle">{{ __('Ongoing Commands') }}</span>
+                    </a>
+                </li>
                 <li class="sidebar-item {{ request()->routeIs('admin.appointments.archived') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin.appointments.archived') }}">
                         <i class="align-middle" data-feather="archive"></i>
-                        <span class="align-middle">{{ __('Archived Appointments') }}</span>
+                        <span class="align-middle">{{ __('Archived Commands') }}</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ request()->routeIs('admin.program') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin.program') }}">
                         <i class="align-middle" data-feather="calendar"></i>
-                        <span class="align-middle">{{ __('Calandar') }}</span>
+                        <span class="align-middle">{{ __('Appointment Calendar') }}</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->routeIs('admin.calendar') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{ route('admin.calendar') }}">
+                        <i class="align-middle" data-feather="calendar"></i>
+                        <span class="align-middle">{{ __('Assembly Calendar') }}</span>
                     </a>
                 </li>
             </ul>

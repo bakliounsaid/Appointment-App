@@ -37,11 +37,11 @@ class Index extends Component
         })->count();
     }
     #[Computed]
-    public function pendingNotViewed()
+    public function ongoing()
     {
-        return Appointment::where('seen',false)->whereHas('latestStatus', function ($query) {
+        return Appointment::whereHas('latestStatus', function ($query) {
             $query->whereHas('status', function ($query) {
-                $query->where('name', 'Pending');
+                $query->where('name', 'Ongoing');
             });
         })->count();
     }

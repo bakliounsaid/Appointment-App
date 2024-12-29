@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class AppointmentNotification extends Mailable
+class AssemblyNotification extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -25,7 +25,7 @@ class AppointmentNotification extends Mailable
      */
     public function build()
     {
-        return $this->subject(__('Chaima Rideaux RDV'))
-                    ->view('emails.appointment-notification');
+        return $this->subject(__('Chaima Rideaux Montage'))
+                    ->view('emails.assembly-notification');
     }
 }

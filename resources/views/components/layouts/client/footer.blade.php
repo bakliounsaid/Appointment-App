@@ -32,7 +32,7 @@
                             fill="#D4AF37"></path>
                     </svg>
                 </div>
-                <span dir="ltr">+213 671 369 955<br>+213 667 879 955</span>
+                <span dir="ltr">+213 671 369 955<br>+213 552 419 092<br>+213 667 879 955</span>
             </div>
         </div>
     </div>

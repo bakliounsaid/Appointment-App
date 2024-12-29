@@ -48,7 +48,6 @@
     "Pending Appointments": "Rendez-vous en attente",
     "Search": "Rechercher",
     "Appointments": "Rendez-vous",
-    "Archived Appointments": "Rendez-vous archivés",
     "Comfirmed Appointments": "Rendez-vous confirmés",
     "Actions": "Actions",
     "Requested Date": "Date demandée",
@@ -63,7 +62,7 @@
     "Appointment validated successfully": "Rendez-vous validé avec succès",
     "Could not validate this appointment!": "Impossible de valider ce rendez-vous !",
     "Could not make more then foor appointments in same day!":"Impossible de prendre plus de quatre rendez-vous le même jour !",
-     "Appointment deleted successfully!": "Rendez-vous supprimé avec succès !",
+    "Appointment deleted successfully!": "Rendez-vous supprimé avec succès !",
     "Could not delete this Appointment!": "Impossible de supprimer ce rendez-vous !",
     "delete_appointment_warning": "Êtes-vous sûr de vouloir supprimer ce rendez-vous ? Cette action est irréversible.",
     "Delete": "supprimer",
@@ -83,17 +82,27 @@
     "Archived successfully": "Archivé avec succès",
     "Could not archive this appointment!": "Impossible d'archiver ce rendez-vous !",
     "Archive": "Archiver",
-    "Thank you for choosing our services!": "Merci d'avoir choisi nos services !",
-    "We are writing to inform you about your upcoming appointment.": "Nous vous écrivons pour vous informer de votre prochain rendez-vous.",
-    "Hello": "Bonjour",
-    "Appointment Notification": "Notification de Rendez-vous",
-    "We look forward to seeing you soon!" : "Nous avons hâte de vous voir bientôt!",
-    "Best regards": "Cordialement"
-
-
-
-
-
+    "Show": "Afficher",
+    "No appointments":"Aucun rendez-vous",
+    "Your Appointment Details":"Les détails de votre rendez-vous",
+    "Windows Number": "Nombre de fenêtres",
+    "Ongoing Commands":"Commandes en réalisation",
+    "Archived Commands":"Commandes archivées",
+    "Confirm": "Confirmer",
+    "Appointment Information" : "Informations sur le rendez-vous",
+    "Assembly Date" : "Date de montage",
+    "Confirm Appointment" : "Confirmer le rendez-vous",
+    "Edit Appointment Date" : "Modifier la date du rendez-vous",
+    "Ongoing" : "Mettre En Realisation",
+    "Assembly confirmed successfully" : "Réalisation confirmée avec succès",
+    "Assembly successfully" : "Réalisation réussie",
+    "Commands":"Commandes",
+    "Assembly date confirmed successfully": "Date de montage confirmée avec succès",
+    "Could not make more than four assembly in the same day!": "Impossible de réaliser plus de quatre montages le même jour !",
+    "Assembly Calendar": "Calendrier de montage",
+    "Appointment Calendar": "Calendrier des RDV",
+    "No assembly Commands has been found":"Aucune commande en réalisation n'a été trouvée",
+    "Could not make more then foor assembly in same day!":"Impossible de réaliser plus de quatre montages le même jour !"
 
 
 

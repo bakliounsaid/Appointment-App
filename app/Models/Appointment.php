@@ -61,6 +61,12 @@ class Appointment extends Model
             ->locale(app()->getLocale() === 'fr' ? 'fr' : 'ar')
             ->isoFormat('dddd, YYYY-MM-DD');
     }
+    public function getFormattedAssemblyDateAttribute()
+    {
+        return Carbon::parse($this->assembly_date)
+            ->locale(app()->getLocale() === 'fr' ? 'fr' : 'ar')
+            ->isoFormat('dddd, YYYY-MM-DD');
+    }
     protected function getNameAttribute()
     {
        return  $this->firstname . ' ' . $this->lastname;

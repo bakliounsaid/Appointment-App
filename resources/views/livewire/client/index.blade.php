@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-12">
-                    <h2 class="text-blue-100 section-heading">
+                    <h2 class="text-black section-heading">
                         {{ __('Request an Appointment')}}
                         <span class="heading-border-bottom"></span>
                     </h2>
@@ -86,7 +86,12 @@
                                     <input type="text" placeholder="{{ __('Localisation') }}" wire:model.defer="location">
                                     @error('location') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-6">
+                                    <label class="form-label">{{ __('Windows Number')  }}</label>
+                                    <input type="number" min="1" placeholder="{{ __('Windows Number') }}" wire:model.defer="windows">
+                                    @error('windows') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-md-6">
                                     <label class="form-label">{{ __('Date') }}</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-gold-500">
@@ -121,9 +126,9 @@
                             </div>
                             @else
                             <div class="col-12 text-center">
-                                <h4 class="text-blue-100 section-heading mb-3">{{ __('Appointment successfully registered!') }}</h4>
+                                <h4 class="text-black section-heading mb-3">{{ __('Appointment successfully registered!') }}</h4>
                             </br>
-                                <p class="text-blue section-heading mb-0">
+                                <p class="text-black section-heading mb-0">
                                     {{ __('You will be contacted soon.') }}
                                 </p>
                             </div>
@@ -135,6 +140,4 @@
             </div>
         </div>
     </section>
-
-
 </div>
