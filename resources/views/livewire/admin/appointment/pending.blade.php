@@ -76,7 +76,7 @@
                                     @else
                                         @include('components.empty-table', [
                                             'message' => __('No Request Appointment has been found'),
-                                            'colspan' => 6,
+                                            'colspan' => 7,
                                         ])
                                     @endif
                                 </tbody>

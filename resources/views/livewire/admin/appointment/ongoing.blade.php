@@ -79,7 +79,7 @@
                                     @else
                                         @include('components.empty-table', [
                                             'message' => __('No assembly Commands has been found'),
-                                            'colspan' => 6,
+                                            'colspan' => 7,
                                         ])
                                     @endif
                                 </tbody>

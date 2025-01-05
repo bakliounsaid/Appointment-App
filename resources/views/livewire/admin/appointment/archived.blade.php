@@ -81,7 +81,7 @@
                                     @else
                                         @include('components.empty-table', [
                                             'message' => __('No Archived Appointment has been found'),
-                                            'colspan' => 7,
+                                            'colspan' => 8,
                                         ])
                                     @endif
                                 </tbody>
