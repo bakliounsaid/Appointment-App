@@ -76,17 +76,17 @@
                                     </div>
                                     @error('city') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <label class="form-label">{{ __('Address') }}</label>
                                     <input type="text" placeholder="{{ __('Address') }}" wire:model.defer="address">
                                     @error('address') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <label class="form-label">{{ __('Localisation')  }}(GPS)</label>
                                     <input type="text" placeholder="{{ __('Localisation') }}" wire:model.defer="location">
                                     @error('location') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <label class="form-label">{{ __('Windows Number')  }}</label>
                                     <input type="number" min="1" placeholder="{{ __('Windows Number') }}" wire:model.defer="windows">
                                     @error('windows') <span class="text-danger">{{ $message }}</span> @enderror

@@ -25,6 +25,7 @@ class Detail extends Component
     public $confirmed;
     public $archived;
     public $ongoing;
+    public $quotation;
     public function mount()
     {
         $currentLocale = app()->getLocale();
@@ -90,11 +91,16 @@ class Detail extends Component
     }
     public function assembly()
     {
+        $this->validate(['quotation' => 'required|numeric|min:0']);
+
         try {
-            $this->appointment->statuses()->attach($this->ongoing->id);
-            $this->appointment->save();
-            alert()->success(__('Assembly successfully'), __('Assembly confirmed successfully'));
-            return redirect()->route('admin.appointments.ongoing');
+            DB::transaction(function () {
+                $this->appointment->price = $this->quotation;
+                $this->appointment->statuses()->attach($this->ongoing->id);
+                $this->appointment->save();
+                alert()->success(__('Assembly successfully'), __('Assembly confirmed successfully'));
+                return redirect()->route('admin.appointments.ongoing');
+            });
         } catch (Throwable $th) {
             Log::alert($th->getMessage());
             $this->dispatch('showAlert', [

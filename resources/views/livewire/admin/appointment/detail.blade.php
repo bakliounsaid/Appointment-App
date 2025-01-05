@@ -51,22 +51,27 @@
                         <p class="form-control-plaintext" id="windows">{{ $appointment->windows }}
                         </p>
                     </div>
+                    <div class="col-md-12">
+                        <label for="description" class="form-label">{{ __('Description') }}</label>
+                        <p class="form-control-plaintext" id="description">{{ $appointment->description ?? '/' }}
+                        </p>
+                    </div>
                     <div style="border-bottom: 1px solid #e9ecef;" class="card-header">
                         <h5 class="card-title mb-0">{{ __('Appointment Information') }}</h5>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label for="date" class="form-label">{{ __('Requested Date') }}</label>
                         <p class="form-control-plaintext" id="date">{{ $appointment->formatted_client_date }}
                         </p>
                     </div>
                     @if ($appointment->admin_date && now() > $appointment->admin_date)
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label for="date" class="form-label">{{ __('Confirmed Date') }}</label>
                             <p class="form-control-plaintext" id="adminDate">
                                 {{ $appointment->formatted_admin_date }}</p>
                         </div>
                     @else
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label for="adminDate" class="form-label">{{ __('Confirmed Date') }}</label>
                             <input type="date" class="form-control  @error('adminDate') is-invalid @enderror"
                                 id="adminDate" wire:model.defer="adminDate">
@@ -75,9 +80,25 @@
                             @enderror
                         </div>
                     @endif
+                    @if ($appointment->latestStatus->status->name == 'Validated' && now() >= $appointment->admin_date)
+                        <div class="col-md-6">
+                            <label for="quotation" class="form-label">{{ __('Quotation') }}</label>
+                            <input type="number" class="form-control  @error('quotation') is-invalid @enderror"
+                                id="quotation" wire:model.defer="quotation">
+                            @error('quotation')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    @elseif(in_array($appointment->latestStatus->status->name, ['Ongoing', 'Archived']))
+                        <div class="col-md-6">
+                            <label for="quotation" class="form-label">{{ __('Quotation') }}</label>
+                            <p class="form-control-plaintext" id="quotation">
+                                {{ $appointment->price }}</p>
+                        </div>
+                    @endif
                     @if ($appointment->latestStatus->status->name == 'Ongoing')
-                        @if (!$appointment->assembly_date ||  now() <= $appointment->assembly_date)
-                            <div class="col-md-4">
+                        @if (!$appointment->assembly_date || now() <= $appointment->assembly_date)
+                            <div class="col-md-6">
                                 <label for="adminDate" class="form-label">{{ __('Assembly Date') }}</label>
                                 <input type="date" class="form-control  @error('assemblyDate') is-invalid @enderror"
                                     id="assemblyDate" wire:model.defer="assemblyDate">
@@ -86,22 +107,19 @@
                                 @enderror
                             </div>
                         @else
-                        <div class="col-md-4">
-                            <label for="date" class="form-label">{{ __('Assembly Date') }}</label>
-                            <p class="form-control-plaintext" id="adminDate">
-                                {{ $appointment->formatted_assembly_date }}</p>
-                        </div>
+                            <div class="col-md-6">
+                                <label for="date" class="form-label">{{ __('Assembly Date') }}</label>
+                                <p class="form-control-plaintext" id="adminDate">
+                                    {{ $appointment->formatted_assembly_date }}</p>
+                            </div>
                         @endif
                     @endif
-                    <div class="col-md-12">
-                        <label for="description" class="form-label">{{ __('Description') }}</label>
-                        <p class="form-control-plaintext" id="description">{{ $appointment->description ?? '/' }}
-                        </p>
-                    </div>
+
                 </div>
                 @if ($appointment->latestStatus->status->name == 'Pending')
                     <div class="d-grid gap-2 d-md-flex justify-content-end m-3">
-                        <button wire:click ="confirme" wire:loading.attr="disabled" class="btn btn-primary btn-lg px-5">
+                        <button wire:click ="confirme" wire:loading.attr="disabled"
+                            class="btn btn-primary btn-lg px-5">
                             <span wire:loading wire:target="confirme" class="spinner-border spinner-border-sm"
                                 role="status" aria-hidden="true" style="margin-inline-end: 0.25rem;"></span>
                             {{ __('Confirm Appointment') }}
@@ -125,7 +143,9 @@
                             {{ __('Ongoing') }}
                         </button>
                     </div>
-                @elseif ($appointment->latestStatus->status->name == 'Ongoing' && ( now() <= $appointment->assembly_date || !$appointment->assembly_date))
+                @elseif (
+                    $appointment->latestStatus->status->name == 'Ongoing' &&
+                        (now() <= $appointment->assembly_date || !$appointment->assembly_date))
                     <div class="d-grid gap-2 d-md-flex justify-content-end m-3">
                         <button wire:click="dateAssembly" wire:loading.attr="disabled"
                             class="btn btn-primary btn-lg px-5">
@@ -134,7 +154,10 @@
                             {{ __('Assembly Date') }}
                         </button>
                     </div>
-                @elseif ($appointment->assembly_date && $appointment->latestStatus->status->name == 'Ongoing' && now() > $appointment->assembly_date)
+                @elseif (
+                    $appointment->assembly_date &&
+                        $appointment->latestStatus->status->name == 'Ongoing' &&
+                        now() > $appointment->assembly_date)
                     <div class="d-grid gap-2 d-md-flex justify-content-end m-3">
                         <button wire:click="archive" wire:loading.attr="disabled"
                             class="btn btn-primary btn-lg px-5">

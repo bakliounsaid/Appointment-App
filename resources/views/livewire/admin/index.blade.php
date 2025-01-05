@@ -38,6 +38,23 @@
                                                     </div>
                                                 </div>
                                                 <h1 class="mt-1 mb-3">{{ $this->ongoing }}</h1>
+
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col mt-0">
+                                                        <h5 class="card-title">{{ __('Weekly Quotations') }}</h5>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <div class="stat text-primary">
+                                                            <i class="align-middle" data-feather="dollar-sign"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h1 class="mt-1 mb-3">{{ $this->weeklyQuotation }}</h1>
                                             </div>
                                         </div>
 
@@ -73,6 +90,22 @@
                                                     </div>
                                                 </div>
                                                 <h1 class="mt-1 mb-3">{{ $this->Archived}}</h1>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col mt-0">
+                                                        <h5 class="card-title">{{ __('Monthly Quotations') }}</h5>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <div class="stat text-primary">
+                                                            <i class="align-middle" data-feather="dollar-sign"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h1 class="mt-1 mb-3">{{ $this->monthlyQuotation}}</h1>
                                             </div>
                                         </div>
                                     </div>

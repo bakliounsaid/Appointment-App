@@ -20,6 +20,7 @@ class Appointment extends Model
         'city_id',
         'client_date',
         'admin_date',
+        'price'
     ];
     protected $searchable_attributes = [
         'firstname',
@@ -32,6 +33,7 @@ class Appointment extends Model
         'client_date',
         'admin_date',
         'description',
+        'price'
     ];
 
     public function city()

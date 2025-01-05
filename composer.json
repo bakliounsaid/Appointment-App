@@ -6,12 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "diglactic/laravel-breadcrumbs": "^9.0",
-        "intervention/image": "^3.9",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
-        "outhebox/blade-flags": "^1.5",
         "realrashid/sweet-alert": "^7.2",
         "spatie/laravel-permission": "^6.9",
         "staudenmeir/eloquent-has-many-deep": "^1.20"

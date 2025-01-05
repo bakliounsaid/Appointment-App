@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('assembly_date')->nullable();
             $table->integer('windows')->nullable();
             $table->text('description')->nullable();
+            $table->float('price',8,2)->nullable();
             $table->boolean('seen')->default(false);
             $table->timestamps();
         });

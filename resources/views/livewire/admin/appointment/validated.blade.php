@@ -42,8 +42,7 @@
                             <table class="table table-striped no-footer dtr-inline" width="100%" style="width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('Firstname') }}</th>
-                                        <th> {{ __('Lastname') }}</th>
+                                        <th> {{ __('Name') }}</th>
                                         <th> {{ __('Phone') }} </th>
                                         <th> {{ __('City') }}</th>
                                         <th> {{ __('State') }}</th>
@@ -56,13 +55,12 @@
                                     @if ($validated->count())
                                         @foreach ($validated as $appointment)
                                             <tr>
-                                                <td>{{ $appointment->firstname }}</td>
-                                                <td>{{ $appointment->lastname }}</td>
+                                                <td>{{ $appointment->name }}</td>
                                                 <td>{{ $appointment->phone}} </td>
                                                 <td>{{ $appointment->city->{$language.'_name'} }}</td>
                                                 <td>{{ $appointment->city->state->{$language.'_name'} }}</td>
                                                 <td>{{ $appointment->windows }} </td>
-                                                <td>{{ $appointment->formatted_admin_date }} </td>
+                                                <td>{{ $appointment->admin_date }} </td>
                                                 <td class="text-end">
                                                     <a href="{{ route('admin.appointments.show', $appointment->id) }}"
                                                         class="btn btn-primary btn-sm">{{ __('Show') }}

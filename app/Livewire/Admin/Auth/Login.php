@@ -15,16 +15,13 @@ class Login extends Component
 
     public function login()
     {
-        // Validate input fields
-        $this->validate([
+      $this->validate([
             'username' => 'required',
             'password' => 'required',
         ]);
 
         try {
-            $credentials = ['password' => $this->password];
-
-            // Check if the input is an email or username
+            
             $credentials = [
                 $this->getUsernameKey() => $this->username,
                 'password' => $this->password

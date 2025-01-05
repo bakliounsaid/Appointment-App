@@ -103,6 +103,9 @@
     "Assembly Calendar": "تقويم التركيب",
     "Appointment Calendar": "تقويم المواعيد",
     "No assembly commands have been found": "لم يتم العثور على أي أوامر تركيب قيد التنفيذ",
-    "Could not make more then foor assembly in same day!":"لا يمكن إجراء أكثر من أربعة تركيبات في نفس اليوم!"
-
+    "Could not make more then foor assembly in same day!":"لا يمكن إجراء أكثر من أربعة تركيبات في نفس اليوم!",
+    "Quotation":"(دج)السعر",
+    "Name":"الاسم",
+    "Weekly Quotations":" (دج) عروض الأسعار الأسبوعية",
+    "Monthly Quotations":"عروض الأسعار الشهرية (دج)"
 }
