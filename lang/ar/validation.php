@@ -193,5 +193,6 @@ return [
         'phone' => 'الهاتف',
         'firstname' => 'الاسم الأول',
         'lastname' => 'اسم العائلة',
+        'windows' => 'نوافذ'
     ],
 ];

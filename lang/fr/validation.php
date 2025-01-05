@@ -160,6 +160,7 @@ return [
     'phone' => 'Téléphone',
     'firstname' => 'Prénom',
     'lastname' => 'Nom de famille',
+    'windows' => 'fenêtres'
   ],
 ];
 
