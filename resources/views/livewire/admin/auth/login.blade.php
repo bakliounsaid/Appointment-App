@@ -46,13 +46,6 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-check align-items-center">
-                                        <input id="customControlInline" type="checkbox" class="form-check-input"
-                                            value="remember-me" wire:model="remember">
-                                        <label class="form-check-label text-small" for="customControlInline">
-                                            {{ __('Remember me') }}
-                                        </label>
-                                    </div>
                                     @error('credentials')
                                         <div class="pt-2 text-danger">{{ $message }}</div>
                                     @enderror

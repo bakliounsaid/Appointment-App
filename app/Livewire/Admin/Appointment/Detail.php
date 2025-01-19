@@ -123,6 +123,7 @@ class Detail extends Component
                     if (!$this->appointment->assembly_date || ($this->appointment->assembly_date && ($this->appointment->assembly_date != $this->assemblyDate))) {
                         $this->appointment->assembly_date = $this->assemblyDate;
                         $this->appointment->save();
+                        if ($this->appointment->email)
                         Mail::to($this->appointment->email)->send(new AssemblyNotification($this->appointment));
                     }
                     alert()->success(__('Assembly successfully'), __('Assembly date confirmed successfully'));
@@ -132,7 +133,7 @@ class Detail extends Component
         } catch (Throwable $th) {
             Log::alert($th->getMessage());
             $this->dispatch('showAlert', [
-                "text" => __('Could not confirmed  this appointment!'),
+                "text" => __('Could not confirmed this appointment!'),
                 'icon' => "warning"
             ]);
         }

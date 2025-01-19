@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Client;
 
-use App\Livewire\Admin\Layout\Sidebar;
+use App\Mail\NewAppointment;
 use App\Models\Appointment;
 use App\Models\State;
 use App\Models\Status;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -66,6 +68,7 @@ class Index extends Component
         $this->validate();
 
         try {
+            DB::transaction(function () {
             $appointment = new Appointment();
             $appointment->firstname    = $this->firstname;
             $appointment->lastname     = $this->lastname;
@@ -80,14 +83,14 @@ class Index extends Component
             $appointment->save();
             $appointment->statuses()->attach($this->pending->id);
             $appointment->save();
-            $this->dispatch('new-appointment')->to(Sidebar::class);
+            Mail::to("Chaimarideaux@gmail.com")->send(new NewAppointment($appointment));
             $this->dispatch('show-toast-alert', [
                 "text" => __('Appointment Created successfully!'),
                 'icon' => "success"
             ]);
             $this->successPage = true;
+           });
         } catch (Throwable $th) {
-            dd($th);
             Log::alert($th->getMessage());
             $this->dispatch('show-toast-alert', [
                 "text" => __('Could not create this appointment!'),
