@@ -45,7 +45,7 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col mt-0">
-                                                        <h5 class="card-title">{{ __('Weekly Quotations') }}</h5>
+                                                        <h5 class="card-title">{{ __('Weekly Quotations') }} </h5>
                                                     </div>
 
                                                     <div class="col-auto">
@@ -54,7 +54,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <h1 class="mt-1 mb-3">{{ $this->weeklyQuotation }}</h1>
+                                                <h1 class="mt-1 mb-3">{{ $this->weeklyQuotation }} {{ __('Currency') }}</h1>
                                             </div>
                                         </div>
 
@@ -105,7 +105,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <h1 class="mt-1 mb-3">{{ $this->monthlyQuotation}}</h1>
+                                                <h1 class="mt-1 mb-3">{{ $this->monthlyQuotation}} {{ __('Currency') }}</h1>
                                             </div>
                                         </div>
                                     </div>

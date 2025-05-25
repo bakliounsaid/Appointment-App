@@ -1,6 +1,4 @@
-<div>
-    <!-- Contact Section -->
-    <section class="sections-bg-gradient container-fluid" id="contact" style="padding: 150px 0;">
+    <section class="sections-bg-gradient container-fluid" id="contact" style="padding: 100px 0;">
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-12">
@@ -140,4 +138,3 @@
             </div>
         </div>
     </section>
-</div>

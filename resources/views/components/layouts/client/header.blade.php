@@ -8,14 +8,14 @@
         <nav class="nav d-none d-md-block">
             <ul style="gap: 2rem;">
                 <li><a href="{{ route('client.home') }}">{{ __('Home') }}</a>
-{{--                 <li><a href="{{ route('client.home') }}#contact">{{ __('Contact') }}</a></li>    --}}             </li>
+                <li><a href="{{ route('client.product.index') }}">{{ __('Our Products') }}</a>
             </ul>
         </nav>
         <div class="d-flex align-items-center gap-3">
             <button wire:click="toggleLanguage" class="language-btn d-flex gap-2"
                 style="background-color: transparent; border: 1px solid rgba(212,175,55,0.3); color: #F5F5F5; padding: 0.5rem 1rem; border-radius: 6px;">
                 <span style="color: #D4AF37;">
-                    {{ strtoupper($language === 'fr' ? __('Arabic') : __('Français') ) }}
+                    {{ strtoupper($language === 'fr' ? ('العربية') : 'Français') }}
                 </span>
             </button>
 
@@ -31,17 +31,18 @@
         <ul class="gap-5 flex-column px-3 py-4">
             <li><a class="d-block w-100" href="{{ route('client.home') }}">{{ __('Home') }}</a>
             </li>
-{{--             <li><a class="d-block w-100" href="{{'#contact' }}">{{ __('Contact') }}</a>
- --}}            </li>
+            <li><a class="d-block w-100" href="{{ route('client.product.index') }}">{{ __('Our Product') }}</a>
+            </li>
+            </li>
         </ul>
     </nav>
 </header>
 <script>
-const hamburgerMenu = document.querySelector('.hamburger-menu');
-const mobileNav = document.querySelector('.mobile-nav');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
 
-hamburgerMenu.addEventListener('click', function() {
-    this.classList.toggle('active');
-    mobileNav.classList.toggle('active');
-});
+    hamburgerMenu.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+    });
 </script>

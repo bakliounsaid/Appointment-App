@@ -3,6 +3,8 @@
 namespace App\Livewire\Admin\Layout;
 
 use App\Models\Appointment;
+use App\Models\Order;
+use App\Models\Status;
 use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
@@ -20,6 +22,15 @@ class Sidebar extends Component
     public function pending()
     {
         return Appointment::whereHas('latestStatus', function ($query) {
+            $query->whereHas('status', function ($query) {
+                $query->where('name', 'Pending');
+            });
+        })->count();
+    }
+    #[Computed()]
+    public function orders()
+    {
+        return  Order::whereHas('latestStatus', function ($query) {
             $query->whereHas('status', function ($query) {
                 $query->where('name', 'Pending');
             });

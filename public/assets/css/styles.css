@@ -274,3 +274,8 @@ html[dir="rtl"] .badge-warning {
     margin-right: auto !important;
     margin-left: 0 !important;
 }
+
+.form-check-input.switch-success:checked {
+        background-color: #28a745;
+        border-color: #28a745;
+    }

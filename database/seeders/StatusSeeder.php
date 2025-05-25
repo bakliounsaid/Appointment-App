@@ -18,6 +18,11 @@ class StatusSeeder extends Seeder
             ['name' => 'Validated', 'class' => 'bg-primary text-white'],
             ['name' => 'Ongoing', 'class' => 'bg-info text-white'],
             ['name' => 'Archived', 'class' => 'bg-secondary text-white'],
+            ['name' => 'Prepared', 'class' => 'bg-info text-white'],
+            ['name' => 'Delivered', 'class' => 'bg-success text-white'],
+            ['name' => 'Returned', 'class' => 'bg-danger text-white'],
+            ['name' => 'Alert', 'class' => 'bg-danger text-white'],
+            ['name' => 'InDelivery', 'class' => 'bg-info text-white'],
         ];
 
 

@@ -97,6 +97,37 @@
                     }
                 });
             });
+
+             Livewire.on('creation-confirmation', (
+                params
+            ) => {
+                const title = params.title ?? "{{ __('Creation confirmation') }}";
+                const text = params.text ?? "{{ __('Are you sure you want to confirm this order,then it will created in extern delivery service ZR Express') }}";
+
+                Swal.fire({
+                    title: title,
+                    text: text,
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: "{{ __('Yes, confirm it!') }}",
+                    cancelButtonText: "{{ __('Cancel') }}",
+                    buttonsStyling: false,
+                    reverseButtons: true,
+                    customClass: {
+                        confirmButton: 'btn btn-success ms-1',
+                        cancelButton: 'btn btn-outline-secondary',
+                    }
+                }).then(({
+                    isConfirmed
+                }) => {
+                    if (isConfirmed) {
+                        Livewire.dispatch(params.function, {
+                            id: params.id
+                        });
+
+                    }
+                });
+            });
         });
     </script>
 </body>

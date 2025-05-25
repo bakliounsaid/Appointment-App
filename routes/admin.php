@@ -11,6 +11,11 @@ use App\Livewire\Admin\Index;
 use App\Livewire\Admin\Auth\Login;
 use App\Livewire\Admin\Auth\ForgotPassword;
 use App\Livewire\Admin\Auth\ResetPassword;
+use App\Livewire\Admin\Order\Index as OrderIndex;
+use App\Livewire\Admin\Order\Show as OrderShow;
+use App\Livewire\Admin\Product\Create;
+use App\Livewire\Admin\Product\Index as ProductIndex;
+use App\Livewire\Admin\Product\Show;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,6 +33,15 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/ongonig', Ongoing::class)->name('ongoing');
         Route::get('/{appointment}', Detail::class)->name('show');
         Route::get('program', Program::class)->name('program');
+    });
+     Route::prefix('product')->name('product.')->group(function () {
+        Route::get('/index', ProductIndex::class)->name('index');
+        Route::get('/show/{product}', Show::class)->name('show');
+        Route::get('/create', Create::class)->name('create');
+    });
+        Route::prefix('order')->name('order.')->group(function () {
+        Route::get('/index', OrderIndex::class)->name('index');
+        Route::get('/show/{order}', OrderShow::class)->name('show');
     });
     Route::get('/program', Program::class)->name('program');
     Route::get('/calendar', OngoingCalendar::class)->name('calendar');
