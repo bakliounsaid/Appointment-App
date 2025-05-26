@@ -4,7 +4,7 @@
 
             <div class="row">
                 {{-- Left: Fixed size big image + thumbnails --}}
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-5 mb-4">
                     <div class="card border-0 rounded-4 shadow-sm">
                         <img id="mainImage" src="{{ asset('storage/' . $product->media->first()->url) }}"
                             alt="{{ $product->name_ar }}" class="img-fluid rounded-top-4 object-fit-contain"
@@ -107,16 +107,16 @@
                                 </div>
                             @endif
                             @if ($this->deliveryPrice && $this->productPrice)
-                                <div class="col-md-12">
-                                    <p class="fw-semibold mt-3">{{ __('Product Price') }}:
+                                <div class="col-md-12" >
+                                    <p style="font-size: 14px !important;" class="fw-semibold mt-3">{{ __('Product Price') }}:
                                         <span class="text-primary">{{ number_format($this->productPrice, 2) }}
                                             {{ __('Currency') }}</span>
                                     </p>
-                                    <p class="fw-semibold mt-3">{{ __('Delivery Price') }}:
+                                    <p style="font-size: 14px !important;" class="fw-semibold mt-3">{{ __('Delivery Price') }}:
                                         <span class="text-primary">{{ number_format($this->deliveryPrice, 2) }}
                                             {{ __('Currency') }}</span>
                                     </p>
-                                    <p class="fw-bold">{{ __('Total Price') }}:
+                                    <p style="font-size: 14px !important;" class="fw-bold">{{ __('Total Price') }}:
                                         <span
                                             class="text-success">{{ number_format($this->productPrice + $this->deliveryPrice, 2) }}
                                             {{ __('Currency') }}</span>

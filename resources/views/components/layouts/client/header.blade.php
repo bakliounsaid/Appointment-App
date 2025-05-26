@@ -15,7 +15,7 @@
             <button wire:click="toggleLanguage" class="language-btn d-flex gap-2"
                 style="background-color: transparent; border: 1px solid rgba(212,175,55,0.3); color: #F5F5F5; padding: 0.5rem 1rem; border-radius: 6px;">
                 <span style="color: #D4AF37;">
-                    {{ strtoupper($language === 'fr' ? ('العربية') : 'Français') }}
+                    {{ strtoupper($language === 'fr' ? ('العربية') : 'FranÇais') }}
                 </span>
             </button>
 

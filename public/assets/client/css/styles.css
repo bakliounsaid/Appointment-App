@@ -296,7 +296,7 @@ a {
 }
 
 .section-heading {
-    font-size: clamp(1.9rem, 8vw, 3.2rem);
+    font-size: clamp(1.6rem, 6vw, 2.6rem);
     font-weight: 700;
     position: relative;
     display: inline-block;
@@ -358,7 +358,7 @@ a {
 }
 
 .sections-bg-gradient {
-    background: linear-gradient(180deg, #ffffff 0%, #f8f7f2 100%) !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f7f2 100%) ;
 }
 
 .input-group-text {
@@ -600,6 +600,9 @@ a {
 footer .icon-holder {
     background: rgba(212, 175, 55, 0.1);
 }
+footer span {
+    font-size: 16px !important;
+}
 
 @media (max-width: 768px) {
     .program-card {
@@ -818,4 +821,85 @@ p {
 
 .row {
     margin-inline: auto !important;
+}
+
+  #products {
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        transition: background-image 1s ease-in-out !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+
+#products::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.35); /* dark overlay for better contrast */
+    z-index: -1;
+}
+
+#products h2 {
+    color: #F5F5F5 !important;
+}
+
+#products .carousel-inner {
+    box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#products .card {
+    background-color: #fff;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#products .card:hover {
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    0 3px 6px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px) scale(1.02);
+}
+
+.icon-holder {
+    width: fit-content;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.6); /* dark semi-transparent circle */
+    border-radius: 50%;
+    background-size: 60% 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Optional: make the icons a bit bigger */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 3rem;
+    height: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.form-select {
+    font-size: 13.5px !important;
+}
+
+.appointment-form input:focus,
+.appointment-form textarea:focus,
+.appointment-form select:focus {
+   outline: auto;
+}
+.dataTables_info {
+    color: #F5F5F5 !important;
+    margin-block: 8px;
+    font-weight: bold;
 }

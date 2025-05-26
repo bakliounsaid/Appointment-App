@@ -1,7 +1,7 @@
-<footer class="bg-dark text-white pt-5 pb-4" id="contact">
+<footer class="bg-dark text-white pt-3 pb-3" id="contact">
     <div class="container">
         <div class="row g-4 text-center"> <!-- Added text-center for all rows -->
-            <h5 class="text-success mb-4">{{ __('Contact Information') }}</h5>
+            <h3 class="text-success mb-4">{{ __('Contact Information') }}</h3>
             <div class="col-md-4">
                 <div class="icon-holder d-flex align-items-center justify-content-center p-2 rounded-circle mx-auto mb-2">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-2">
         <div class="col-12">
             <hr style="border-color: rgba(255,255,255,0.2);">
             <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">

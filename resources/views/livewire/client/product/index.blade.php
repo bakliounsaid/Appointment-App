@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-12">
-                <h2 class="text-black section-heading">
+                <h2 class=" section-heading">
                     {{ __('Our Products') }}
                     <span class="heading-border-bottom"></span>
                 </h2>
-                <p>{{ __('discover_products') }}</p>
+                <p class="fw-bold" style="color: #F5F5F5;">{{ __('discover products') }}</p>
             </div>
             <div class="row justify-content-center mb-4">
                 <div class="col-md-8">
@@ -21,16 +21,16 @@
         <div class="row g-4">
             @forelse ($products as $product)
                 <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 rounded-4">
+                    <div class="card h-100 border-0 rounded-4">
 
                         {{-- Bootstrap Carousel for product images --}}
                         <div id="carouselProduct{{ $product->id }}" class="carousel slide rounded-top-4"
                             data-bs-ride="carousel" data-bs-interval="3000">
                             <div class="carousel-inner ratio ratio-4x3">
                                 @foreach ($product->media as $key => $media)
-                                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <div class="carousel-item  {{ $key == 0 ? 'active' : '' }}">
                                         <img src="{{ asset('storage/' . $media->url) }}"
-                                            class="d-block w-100 object-fit-cover" alt="{{ $product->name_ar }}">
+                                            class="d-block w-100 h-100" alt="{{ $product->name_ar }}">
                                     </div>
                                 @endforeach
                             </div>
@@ -79,3 +79,26 @@
         @endif
     </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const section = document.getElementById("products");
+
+        const images = [
+            "{{ asset('images/bg/1.png') }}",
+            "{{ asset('images/bg/2.png') }}",
+            "{{ asset('images/bg/3.png') }}",
+            "{{ asset('images/bg/4.png') }}",
+            "{{ asset('images/bg/5.png') }}",
+            "{{ asset('images/bg/6.png') }}"
+        ];
+
+        let index = 0;
+        section.style.backgroundImage = `url(${images[index]})`;
+
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            section.style.backgroundImage = `url(${images[index]})`;
+        }, 4000);
+    });
+</script>
