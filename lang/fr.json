@@ -202,6 +202,8 @@
     "Category updated successfully": "Catégorie mise à jour avec succès",
     "Updated successfully": "Mis à jour avec succès",
     "Select a Category":"Sélectionnez une catégorie",
-    "Category": "Catégorie"
+    "Category": "Catégorie",
+    "Phone One": "Premier numéro de téléphone",
+    "Phone Two": "Deuxième numéro de téléphone"
 
 }

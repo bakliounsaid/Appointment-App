@@ -3,10 +3,12 @@
 namespace App\Services;
 
 use App\Apis\ZrexpressDeliveryApi;
+use App\Mail\ZrConfirmation;
 use App\Models\Order;
 use App\Models\State;
 use App\Models\Status;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Mail;
 
 class DeliveryContext
 {
@@ -38,6 +40,8 @@ class DeliveryContext
             $order->orderStatus()->create([
                 'status_id' => Status::where('name', 'InDelivery')->first()->id
             ]);
+            if ($order->email)
+              Mail::to($order->email)->send(new ZrConfirmation($order));
             return true;
         }
         return false;

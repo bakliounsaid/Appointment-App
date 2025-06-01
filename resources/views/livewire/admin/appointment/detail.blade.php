@@ -12,16 +12,16 @@
             <div class="card-body">
                 <div class="row g-3">
                     <div class="col-md-4">
-                        <label for="firstname" class="form-label">{{ __('Firstname') }}</label>
-                        <p class="form-control-plaintext" id="firstname">{{ $appointment->firstname }}</p>
+                        <label for="firstname" class="form-label">{{ __('Nom') }}</label>
+                        <p class="form-control-plaintext" id="firstname">{{ $appointment->name }}</p>
                     </div>
                     <div class="col-md-4">
-                        <label for="lastname" class="form-label">{{ __('Lastname') }}</label>
-                        <p class="form-control-plaintext" id="lastname">{{ $appointment->lastname }}</p>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="phone" class="form-label">{{ __('Phone') }}</label>
+                        <label for="phone" class="form-label">{{ __('Phone') }}1</label>
                         <p class="form-control-plaintext" id="phone">{{ $appointment->phone }}</p>
+                    </div>
+                     <div class="col-md-4">
+                        <label for="phone" class="form-label">{{ __('Phone') }}2</label>
+                        <p class="form-control-plaintext" id="phone">{{ $appointment->phone2 ?? "/" }}</p>
                     </div>
                     <div class="col-md-4">
                         <label for="address" class="form-label">{{ __('Address') }}</label>

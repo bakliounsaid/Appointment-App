@@ -203,7 +203,9 @@
     "Category updated successfully": "تم تحديث الفئة بنجاح",
     "Updated successfully": "تم التحديث بنجاح",
     "Select a Category":"اختر فئة",
-    "Category":"جديدة"
+    "Category":"جديدة",
+    "Phone Two": "رقم الهاتف الثاني",
+    "Phone One": "رقم الهاتف الأول"
 
 
 }

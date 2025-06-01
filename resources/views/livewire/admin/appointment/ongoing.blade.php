@@ -39,52 +39,55 @@
                     <div class="row dt-row">
                         <div class="col-sm-12">
                             <div class="table-responsive">
-                            <table class="table table-striped no-footer dtr-inline" width="100%" style="width: 100%;">
-                                <thead>
-                                    <tr>
-                                        <th> {{ __('Name') }}</th>
-                                        <th> {{ __('Phone') }} </th>
-                                        <th> {{ __('City') }}</th>
-                                        <th> {{ __('State') }}</th>
-                                        <th> {{ __('Windows Number') }}</th>
-                                        <th> {{ __('Quotation') }}</th>
-                                        <th> {{ __('Assembly Date') }}</th>
+                                <table class="table table-striped no-footer dtr-inline" width="100%"
+                                    style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th> {{ __('Name') }}</th>
+                                            <th> {{ __('Phone') }} 1</th>
+                                            <th> {{ __('Phone') }} 2</th>
+                                            <th> {{ __('City') }}</th>
+                                            <th> {{ __('State') }}</th>
+                                            <th> {{ __('Windows Number') }}</th>
+                                            <th> {{ __('Quotation') }}</th>
+                                            <th> {{ __('Assembly Date') }}</th>
 
-                                        <th class="text-end">{{ __('Actions') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if ($ongoing->count())
-                                        @foreach ($ongoing as $appointment)
-                                            <tr>
-                                                <td>{{ $appointment->name }}</td>
-                                                <td>{{ $appointment->phone}} </td>
-                                                <td>{{ $appointment->city->{$language.'_name'} }}</td>
-                                                <td>{{ $appointment->city->state->{$language.'_name'} }}</td>
-                                                <td>{{ $appointment->windows}} </td>
-                                                <td>{{ $appointment->price}} </td>
-                                                <td>{{ $appointment->assembly_date ?? "/"}} </td>
-                                                <td class="text-end">
-                                                    <a href="{{ route('admin.appointments.show', $appointment->id) }}"
-                                                        class="btn btn-primary btn-sm">{{ __('Show') }}
-                                                    </a>
-                                                    <button class="btn btn-danger btn-sm" type="button"
-                                                        wire:click="$dispatch('delete-confirmation', { function:'delete',id: {{ $appointment->id }},
-                                                          text: '{{ __("delete_appointment_warning") }}'})">
-                                                        {{ __('Delete') }}
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @else
-                                        @include('components.empty-table', [
-                                            'message' => __('No assembly Commands has been found'),
-                                            'colspan' => 7,
-                                        ])
-                                    @endif
-                                </tbody>
-                            </table>
-                          </div>
+                                            <th class="text-end">{{ __('Actions') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if ($ongoing->count())
+                                            @foreach ($ongoing as $appointment)
+                                                <tr>
+                                                    <td>{{ $appointment->name }}</td>
+                                                    <td>{{ $appointment->phone }} </td>
+                                                    <td>{{ $appointment->phone2 ?? '/' }} </td>
+                                                    <td>{{ $appointment->city->{$language . '_name'} }}</td>
+                                                    <td>{{ $appointment->city->state->{$language . '_name'} }}</td>
+                                                    <td>{{ $appointment->windows }} </td>
+                                                    <td>{{ $appointment->price }} </td>
+                                                    <td>{{ $appointment->assembly_date ?? '/' }} </td>
+                                                    <td class="text-end">
+                                                        <a href="{{ route('admin.appointments.show', $appointment->id) }}"
+                                                            class="btn btn-primary btn-sm">{{ __('Show') }}
+                                                        </a>
+                                                        <button class="btn btn-danger btn-sm" type="button"
+                                                            wire:click="$dispatch('delete-confirmation', { function:'delete',id: {{ $appointment->id }},
+                                                          text: '{{ __('delete_appointment_warning') }}'})">
+                                                            {{ __('Delete') }}
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            @include('components.empty-table', [
+                                                'message' => __('No assembly Commands has been found'),
+                                                'colspan' => 7,
+                                            ])
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         @if ($ongoing->count())
                             {{ $ongoing->links() }}
