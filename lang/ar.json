@@ -186,5 +186,24 @@
     "continue_shopping": "تابع التسوق",
     "no_products": "لا توجد منتجات متاحة حاليًا.",
     "discover_products": "اكتشف منتجاتنا عالية الجودة بأفضل العروض",
-    "search_products": "ابحث عن المنتجات..."
+    "search_products": "ابحث عن المنتجات...",
+    "Add New Category": "إضافة فئة جديدة",
+    "Our Categories": "فئاتنا",
+    "Categories": "الفئات",
+    "delete_category_warning": "هل تريد حقًا حذف هذه الفئة؟",
+    "No Categories has been found": "لم يتم العثور على أي فئة",
+    "Could not delete this Category!": "لا يمكن حذف هذه الفئة!",
+    "Category deleted successfully!": "تم حذف الفئة بنجاح!",
+    "Could not create this category": "لا يمكن إنشاء هذه الفئة",
+    "Category created successfully": "تم إنشاء الفئة بنجاح",
+    "New Category": "فئة جديدة",
+    "Category Information": "معلومات الفئة",
+    "Edit Category": "تعديل الفئة",
+    "Could not update this category": "لا يمكن تحديث هذه الفئة",
+    "Category updated successfully": "تم تحديث الفئة بنجاح",
+    "Updated successfully": "تم التحديث بنجاح",
+    "Select a Category":"اختر فئة",
+    "Category":"جديدة"
+
+
 }

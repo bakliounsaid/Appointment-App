@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('client_address')->nullable();
             $table->boolean('delivery_method');
             $table->decimal('delivery_fees', 10, 2)->nullable();
+            $table->enum('delivery_service', ['ZR', 'Default'])->default('ZR');
+            $table->json('dimensions')->nullable();
             $table->string('tracking_code')->nullable();
             $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
             $table->timestamps();

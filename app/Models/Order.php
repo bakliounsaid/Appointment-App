@@ -21,7 +21,8 @@ class Order extends Model
         'delivery_method',
         'delivery_fees',
         'tracking_code',
-        'city_id'
+        'city_id',
+        'delivery_service'
     ];
     protected $searchable_attributes = [
         "fullname",

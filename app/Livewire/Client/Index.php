@@ -35,6 +35,7 @@ class Index extends Component
         'firstname'    => 'required|string|max:50',
         'lastname'     => 'required|string|max:50',
         'phone'        => 'required|numeric|digits_between:8,15',
+        'phone2'        => 'nullable|numeric|digits_between:8,15',
         'email'        => 'nullable|email',
         'state'        => 'required|exists:states,id',
         'city'         => 'required|exists:cities,id',
@@ -76,6 +77,7 @@ class Index extends Component
             $appointment->email        = $this->email;
             $appointment->localisation = $this->localisation  ?? null;
             $appointment->address      = $this->address ?? null;
+            $appointment->phone2      = $this->phone2 ?? null;
             $appointment->description      = $this->description ?? null;
             $appointment->windows = $this->windows;
             $appointment->client_date  = $this->date;

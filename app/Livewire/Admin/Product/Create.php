@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Product;
 
+use App\Models\Category;
 use App\Models\Media;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Encoders\WebpEncoder;
 use Intervention\Image\ImageManager;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 
 use Livewire\Component;
@@ -27,8 +29,14 @@ class Create extends Component
     public $previews = [];
     public $price;
     public $available = true;
+    public $category;
     public $newImages = [];
+    public $language;
 
+    public function mount()
+    {
+        $this->language = app()->getLocale();
+    }
     public function rules()
     {
         return [
@@ -39,6 +47,7 @@ class Create extends Component
             'descriptionAr' => 'required|string|max:255',
             'descriptionFr' => 'required|string|max:255',
             'price' => 'required|numeric',
+            'category' => 'required|exists:Categories,id',
             'available' => 'required|boolean',
         ];
     }
@@ -55,6 +64,11 @@ class Create extends Component
     {
         unset($this->images[$index]);
         $this->images = array_values($this->images);
+    }
+    #[Computed()]
+    public function categories()
+    {
+        return Category::get();
     }
 
     public function save()
@@ -86,7 +100,9 @@ class Create extends Component
                         'url' => $fileName,
                         'type' => 'image',
                     ]);
+                    $product->category()->associate($this->category);
                     $product->media()->save($media);
+                    $product->save();
                 }
 
                 alert()->success(__('Created successfully'), __('Product created successfully'));

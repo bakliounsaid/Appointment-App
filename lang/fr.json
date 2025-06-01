@@ -185,5 +185,23 @@
     "continue_shopping": "Continuez vos achats",
     "no_products": "Aucun produit disponible pour le moment.",
     "discover_products": "Découvrez nos produits de haute qualité avec les meilleures offres",
-    "search_products": "Rechercher des produits..."
+    "search_products": "Rechercher des produits...",
+    "Add New Category": "Ajouter une nouvelle catégorie",
+    "Our Categories": "Nos catégories",
+    "Categories": "Catégories",
+    "delete_category_warning": "Voulez-vous vraiment supprimer cette catégorie ?",
+    "No Categories has been found": "Aucune catégorie trouvée",
+    "Could not delete this Category!": "Impossible de supprimer cette catégorie !",
+    "Category deleted successfully!": "Catégorie supprimée avec succès !",
+    "Could not create this category": "Impossible de créer cette catégorie",
+    "Category created successfully": "Catégorie créée avec succès",
+    "New Category": "Nouvelle catégorie",
+    "Category Information": "Informations sur la catégorie",
+    "Edit Category": "Modifier la catégorie",
+    "Could not update this category": "Impossible de mettre à jour cette catégorie",
+    "Category updated successfully": "Catégorie mise à jour avec succès",
+    "Updated successfully": "Mis à jour avec succès",
+    "Select a Category":"Sélectionnez une catégorie",
+    "Category": "Catégorie"
+
 }

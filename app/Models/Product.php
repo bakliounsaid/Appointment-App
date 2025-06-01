@@ -40,5 +40,8 @@ class Product extends Model
     {
         return $this->morphMany(ProductOrder::class, 'orderable');
     }
-
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
