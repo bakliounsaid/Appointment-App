@@ -11,14 +11,20 @@
                 <h5 class="card-title mb-0">{{ __('Client Information') }}</h5>
 
                 <div class="card-actions d-flex justify-content-end gap-2 flex-wrap">
-                    @if ($order->latestStatus->status->name == 'Ongoing')
+                    @if ($order->latestStatus->status->name == 'Ongoing' && $order->delivery_service == 'ZR')
                         <button class="btn btn-primary text-white" type="button"
                             wire:click="$dispatch('creation-confirmation', { function:'externService',
                 text: '{{ __('cretion_order_in_zr_delivery_service') }}'})"
                             wire:loading.attr="disabled" wire:loading.class="opacity-50">
                             {{ __('InDelivery') }}
                         </button>
+                    @elseif ($order->latestStatus->status->name == 'Ongoing' && $order->delivery_service == 'Default')
+                        <button class="btn btn-primary text-white" type="button" wire:click="changeStatus('InDelivery')"
+                            wire:loading.attr="disabled" wire:loading.class="opacity-50">
+                            {{ __('InDelivery') }}
+                        </button>
                     @endif
+
 
                     @if ($order->latestStatus->status->name == 'Pending')
                         <button class="btn bg-warning text-dark" type="button" wire:click="changeStatus('Ongoing')"
@@ -46,29 +52,46 @@
 
             <div class="card-body">
                 <div class="row mb-2">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <p><strong>{{ __('Name') }} : </strong> {{ $order->fullname }}</p>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <p><strong>{{ __('Phone') }} : </strong> {{ $order->client_phone }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>{{ __('Email') }} : </strong> {{ $order->client_email ?? '/' }}</p>
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <p><strong>{{ __('City') }} : </strong>
                             {{ !$order->delivery_method ? $order->city->{$language . '_name'} : '/' }}</p>
 
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <p><strong>{{ __('State') }} : </strong> {{ $order->city->state->{$language . '_name'} }}
                         </p>
                     </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <p><strong>{{ __('Delivery Method') }} : </strong> {{ $order->deliveryType }}</p>
                     </div>
-                    <div class="col-md-6">
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        @if (in_array($order->latestStatus->status->name, ['Ongoing', 'Pending']))
+                            <label for="delivery_service"><strong>{{ __('Delivery Service') }} :</strong></label>
+                            <select id="delivery_service" wire:model.live="order.delivery_service" class="form-select">
+                                <option value="ZR">ZR</option>
+                                <option value="Default">Default</option>
+                            </select>
+                        @else
+                            <p><strong>{{ __('Delivery Service') }} : </strong> {{ $order->delivery_service }}</p>
+                        @endif
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>{{ __('Tracking Code') }} : </strong> {{ $order->tracking_code ?? '/' }}</p>
+                    </div>
+                    <div class="col-md-4">
                         <p><strong>{{ __('Status') }} : </strong><span
                                 class="badge {{ $order->latestStatus->status->class }}">
                                 {{ __($order->latestStatus->status->name) }}
@@ -88,6 +111,7 @@
                             <th>#</th>
                             <th>{{ __('Name') }}</th>
                             <th>{{ __('Quantity') }}</th>
+                            <th>{{ __('Dimensions') }}({{ __('metre') }})</th>
                             <th>{{ __('Unit Price') }}</th>
                             <th>{{ __('Total') }}</th>
                         </tr>
@@ -98,6 +122,19 @@
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->orderable->{'name_' . $language} }} </td>
                                 <td>{{ $product->quantity }}</td>
+                                {{-- Dimensions --}}
+                                <td>
+                                    @if ($product->order->dimension && count($product->order->dimension) > 0)
+                                        @foreach ($product->order->dimension as $dim)
+                                            <div>
+                                                {{ __('Room') }}: {{ $dim->room_number ?? '-' }},
+                                                {{ __('Largeur') }}: {{ $dim->largeur ?? '-' }}
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        /
+                                    @endif
+                                </td>
                                 <td>{{ number_format($product->sell_price, 2) }} {{ __('Currency') }}</td>
                                 <td>{{ number_format($product->sell_price * $product->quantity, 2) }}
                                     {{ __('Currency') }}</td>

@@ -3,12 +3,12 @@
 namespace App\Livewire\Client\Product;
 
 use App\Models\City;
+use App\Models\Dimension;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\State;
 use App\Models\Status;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
@@ -25,8 +25,15 @@ class Show extends Component
     public $quantity = 1;
     public $deliveryType;
     public $language;
+    public $largeurTotal = 0;
     public $successPage = false;
-
+    public $email;
+    public $dimensions = [
+        [
+            'room_number' => 1,
+            'largeur' => '',
+        ]
+    ];
 
     public function  mount()
     {
@@ -39,6 +46,12 @@ class Show extends Component
         return State::whereNotNull('zr_domicile')->orWhereNotNull('zr_stopdesk')->get();
     }
 
+    public function updatedQuantity($value)
+    {
+        $this->dimensions = array_fill(0, $value, ['room_number' => '', 'largeur' => '']);
+    }
+
+
     #[Computed()]
     public function cities()
     {
@@ -47,11 +60,18 @@ class Show extends Component
         else
             return [];
     }
-
+    public function updatedDimensions($value)
+    {
+        intval($value);
+        $this->largeurTotal += $value;
+    }
     #[Computed()]
     public function productPrice()
     {
-        return $this->quantity * $this->product->price;
+        if ($this->product->category->name_fr == 'La Rail')
+            return   $this->product->price * $this->largeurTotal;
+        else
+            return  $this->quantity * $this->product->price;
     }
 
     #[Computed()]
@@ -76,10 +96,17 @@ class Show extends Component
             'name' => 'required|string|max:255',
             'phone'        => 'required|numeric|digits_between:8,15',
             'selectedState' => 'required|exists:states,id',
+            'email' => 'nullable|email',
             'selectedCity' => [
                 Rule::requiredIf(!$this->deliveryType),
                 'nullable',
                 'exists:cities,id'
+            ],
+            'dimensions.*.largeur' => [
+                Rule::requiredIf($this->product->category->name_fr == 'La Rail'),
+                'nullable',
+                'numeric',
+                'min:0.1'
             ],
             'quantity' => 'required|integer|min:1',
             'deliveryType' => 'boolean',
@@ -90,6 +117,7 @@ class Show extends Component
                     'fullname' => $this->name,
                     'client_phone' => $this->phone,
                     'delivery_method' => $this->deliveryType,
+                    'client_email' => $this->email ?? null ,
                     'delivery_fees' => $this->deliveryPrice,
                     'city_id' => $this->selectedCity ?? State::find($this->selectedState)->cities->first()->id,
                 ]);
@@ -101,6 +129,15 @@ class Show extends Component
                 $order->orderStatus()->create([
                     'status_id' => Status::where('name', 'Pending')->first()->id
                 ]);
+                if ($this->product->category->name_fr == 'La Rail') {
+                    $dimensionModels = collect($this->dimensions)->map(function ($dim, $index) {
+                        if (empty($dim['room_number'])) {
+                            $dim['room_number'] = $index + 1;
+                        }
+                        return new Dimension($dim);
+                    })->all();
+                    $order->dimension()->saveMany($dimensionModels);
+                }
 
                 $this->dispatch('show-toast-alert', [
                     "text" => __('Order Created successfully!'),

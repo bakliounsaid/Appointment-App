@@ -30,7 +30,7 @@ class Index extends Component
     public $date;
     public $pending;
     public $windows;
-    public $successPage = true;
+    public $successPage = false;
 
     protected $rules = [
         'firstname'    => 'required|string|max:50',

@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Models\Appointment;
+use App\Models\Order;
 use Carbon\Carbon;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
@@ -19,15 +20,7 @@ class Index extends Component
             });
         })->count();
     }
-    #[Computed]
-    public function Archived()
-    {
-        return Appointment::whereHas('latestStatus', function ($query) {
-            $query->whereHas('status', function ($query) {
-                $query->where('name', 'Archived');
-            });
-        })->count();
-    }
+
     #[Computed]
     public function pending()
     {
@@ -46,18 +39,14 @@ class Index extends Component
             });
         })->count();
     }
-    #[Computed]
-    public function monthlyQuotation()
+      #[Computed]
+    public function pendingOrders()
     {
-        $startOfLastMonth = Carbon::now()->subMonth()->startOfMonth()->toDateString();
-        $endOfLastMonth = Carbon::now()->subMonth()->endOfMonth()->toDateString();
-        $sum = Appointment::whereHas('latestStatus', function ($query) {
+        return Order::whereHas('latestStatus', function ($query) {
             $query->whereHas('status', function ($query) {
-                $query->whereIn('name', ['Ongoing', 'Archived']);
+                $query->where('name', 'Pending');
             });
-        })->whereBetween('assembly_date', [$startOfLastMonth, $endOfLastMonth])
-            ->sum('price');
-        return round($sum, 2);
+        })->count();
     }
     #[Computed]
     public function weeklyQuotation()

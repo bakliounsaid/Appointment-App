@@ -40,8 +40,8 @@ class DeliveryContext
             $order->orderStatus()->create([
                 'status_id' => Status::where('name', 'InDelivery')->first()->id
             ]);
-            if ($order->email)
-              Mail::to($order->email)->send(new ZrConfirmation($order));
+            if ($order->client_email)
+              Mail::to($order->client_email)->send(new ZrConfirmation($order));
             return true;
         }
         return false;

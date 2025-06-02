@@ -106,8 +106,7 @@
     "Could not make more then foor assembly in same day!": "لا يمكن إجراء أكثر من أربعة تركيبات في نفس اليوم!",
     "Quotation": "السعر",
     "Name": "الاسم",
-    "Weekly Quotations": "عروض الأسعار الأسبوعية",
-    "Monthly Quotations": "عروض الأسعار الشهرية",
+    "Quotations": "عروض الأسعار",
     "Could not confirmed this appointment!": "تعذر تأكيد هذا الموعد!",
     "Product Information": "معلومات المنتج",
     "New Product": "منتج جديد",
@@ -205,7 +204,19 @@
     "Select a Category":"اختر فئة",
     "Category":"جديدة",
     "Phone Two": "رقم الهاتف الثاني",
-    "Phone One": "رقم الهاتف الأول"
+    "Phone One": "رقم الهاتف الأول",
+    "Room": "غرفة",
+    "Enter Dimensions": "أدخل الأبعاد",
+    "Largeur": "الطول",
+    "See Details": "شاهد التفاصيل",
+    "metre" :"متر",
+    "Total Price" :"السعر الإجمالي",
+    "Order delivery service changed successfully!": "تم تغيير خدمة توصيل الطلب بنجاح!",
+    "Could not change this order delivery service!": "تعذر تغيير خدمة توصيل هذا الطلب!",
+    "Confirm": "تاكيد",
+    "Appointments Statistic": "إحصائيات المواعيد",
+    "Order Statistic": "إحصائيات الطلبات",
+    "Pending Orders": "الطلبات المعلقة"
 
 
 }

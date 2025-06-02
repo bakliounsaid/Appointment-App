@@ -66,7 +66,7 @@
                                                 <tr>
                                                     <th><img src="{{ asset('storage/' . $product->media->first()->url) }}"
                                                             width='40'style='margin-inline-start: 5px;' /></th>
-                                                    <td>{{ $product->category->{'name_' . $language} }} }}</td>
+                                                    <td>{{ $product->category->{'name_' . $language} }}</td>
                                                     <td>{{ $product->name_ar }}</td>
                                                     <td>{{ $product->name_fr }} </td>
                                                     <td>{{ $product->description_ar }}</td>
