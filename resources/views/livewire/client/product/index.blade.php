@@ -1,5 +1,5 @@
 <section class="sections-bg-gradient container-fluid" id="products" style="padding: 100px 0;">
-    <div class="container">
+    <div class="container position-relative z-3">
         <div class="row text-center mb-5">
             <div class="col-12">
                 <h2 class=" section-heading">
@@ -15,9 +15,22 @@
                 </div>
             </div>
         </div>
-
-
-
+{{-- Category Filters --}}
+<div class="row justify-content-center mb-5">
+    <div class="col-auto">
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+            @php
+                $categories = ['All', 'Electronics', 'Fashion', 'Home', 'Beauty', 'Books', 'Toys', 'Sports'];
+            @endphp
+            @foreach ($categories as $category)
+                <button class="btn btn-outline-light px-4 py-2 rounded-pill fw-bold border-2 category-filter"
+                    style="border-color: #FFD700; color: #FFD700; transition: 0.3s;">
+                    {{ __($category) }}
+                </button>
+            @endforeach
+        </div>
+    </div>
+</div>
         <div class="row g-4">
             @forelse ($products as $product)
                 <div class="col-sm-6 col-md-4 col-lg-3">

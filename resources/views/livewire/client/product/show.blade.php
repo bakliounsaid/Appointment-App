@@ -2,7 +2,7 @@
     <div class="container">
         @if (!$successPage)
 
-            <div class="row">
+            <div class="row justify-content-center">
                 {{-- Left: Fixed size big image + thumbnails --}}
                 <div class="col-lg-5 mb-4">
                     <div class="card border-0 rounded-4 shadow-sm">
@@ -24,7 +24,7 @@
                 </div>
 
                 {{-- Right: Product info + buy form --}}
-                <div class="col-lg-6 d-flex flex-column justify-content-center">
+                <div class="card rounded-4 shadow-sm col-lg-6 d-flex flex-column justify-content-center">
                     <h2 class="text-black fw-bold mb-3">{{ $product->{'name_' . $language} }}</h2>
                     <p class="text-muted mb-4" style="line-height: 1.4;">{{ $product->{'description_' . $language} }}
                     </p>
