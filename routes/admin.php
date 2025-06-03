@@ -11,6 +11,9 @@ use App\Livewire\Admin\Index;
 use App\Livewire\Admin\Auth\Login;
 use App\Livewire\Admin\Auth\ForgotPassword;
 use App\Livewire\Admin\Auth\ResetPassword;
+use App\Livewire\Admin\Category\Create as CategoryCreate;
+use App\Livewire\Admin\Category\Index as CategoryIndex;
+use App\Livewire\Admin\Category\Show as CategoryShow;
 use App\Livewire\Admin\Order\Index as OrderIndex;
 use App\Livewire\Admin\Order\Show as OrderShow;
 use App\Livewire\Admin\Product\Create;
@@ -38,6 +41,11 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/index', ProductIndex::class)->name('index');
         Route::get('/show/{product}', Show::class)->name('show');
         Route::get('/create', Create::class)->name('create');
+    });
+        Route::prefix('category')->name('category.')->group(function () {
+        Route::get('/index', CategoryIndex::class)->name('index');
+        Route::get('/show/{category}', CategoryShow::class)->name('show');
+        Route::get('/create', CategoryCreate::class)->name('create');
     });
         Route::prefix('order')->name('order.')->group(function () {
         Route::get('/index', OrderIndex::class)->name('index');

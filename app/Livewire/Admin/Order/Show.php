@@ -2,10 +2,12 @@
 
 namespace App\Livewire\Admin\Order;
 
+use App\Mail\ZrConfirmation;
 use App\Models\Order;
 use App\Models\Status;
 use App\Services\DeliveryContext;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -15,7 +17,9 @@ class Show extends Component
 
     public Order $order;
     public $language;
-
+    protected $rules = [
+        'order.delivery_service' => 'required|in:ZR,Default',
+    ];
     public function  mount()
     {
         $this->language = app()->getLocale();
@@ -25,13 +29,15 @@ class Show extends Component
     public function createOrderInDeliveryService()
     {
         try {
-            $delivery = new DeliveryContext("Zrexpress");
-            $delivery->createOrder($this->order);
-            $this->order->refresh();
-            $this->dispatch('show-toast-alert', [
-                "text" => __('Order created in delivery service successfully!'),
-                'icon' => "success"
-            ]);
+            if ($this->order->delivery_service == "ZR") {
+                $delivery = new DeliveryContext("Zrexpress");
+                $delivery->createOrder($this->order);
+                $this->order->refresh();
+                $this->dispatch('show-toast-alert', [
+                    "text" => __('Order created in delivery service successfully!'),
+                    'icon' => "success"
+                ]);
+            }
         } catch (\Throwable $th) {
             Log::alert($th->getMessage());
             $this->dispatch('show-toast-alert', [
@@ -59,6 +65,26 @@ class Show extends Component
             ]);
         }
     }
+
+    public function updatedOrderDeliveryService($value)
+    {
+        $this->validate();
+        try {
+            $this->order->save();
+            $this->order->refresh();
+            $this->dispatch('show-toast-alert', [
+                "text" => __('Order delivery service changed successfully!'),
+                'icon' => "success"
+            ]);
+        } catch (\Throwable $th) {
+            Log::alert($th->getMessage());
+            $this->dispatch('show-toast-alert', [
+                "text" => __('Could not change this order delivery service!'),
+                'icon' => "warning"
+            ]);
+        }
+    }
+
     #[Layout('components.layouts.admin.app')]
 
     public function render()

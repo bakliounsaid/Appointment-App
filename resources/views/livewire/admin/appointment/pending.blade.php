@@ -43,7 +43,8 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('Name') }}</th>
-                                        <th> {{ __('Phone') }} </th>
+                                        <th> {{ __('Phone') }} 1</th>
+                                        <th> {{ __('Phone') }} 2</th>
                                         <th> {{ __('City') }}</th>
                                         <th> {{ __('State') }}</th>
                                         <th> {{ __('Windows Number') }}</th>
@@ -57,6 +58,7 @@
                                             <tr>
                                                 <td>{{ $appointment->name }}</td>
                                                 <td>{{ $appointment->phone}} </td>
+                                                <td>{{ $appointment->phone2 ?? "/" }} </td>
                                                 <td>{{ $appointment->city->{$language.'_name'} }}</td>
                                                 <td>{{ $appointment->city->state->{$language.'_name'} }}</td>
                                                 <td>{{ $appointment->windows}} </td>

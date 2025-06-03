@@ -55,7 +55,7 @@
                                         <th> {{ __('Phone') }} </th>
                                         <th> {{ __('City') }}</th>
                                         <th> {{ __('State') }}</th>
-                                        <th> {{ __('Delivery Method') }}</th>
+                                        <th> {{ __('Delivery Service') }}</th>
                                         <th> {{ __('Price') }}</th>
                                         <th> {{ __('Status') }}</th>
                                         <th class="text-end">{{ __('Actions') }}</th>
@@ -70,7 +70,7 @@
                                                 <td>{{ $order->client_phone }}</td>
                                                 <td>{{ $order->city->{$language . '_name'} }}</td>
                                                 <td>{{ $order->city->state->{$language . '_name'} }}</td>
-                                                <td>{{ $order->deliveryType }}</td>
+                                                <td>{{ __($order->delivery_service) }}</td>
                                                 <td>{{ number_format($order->total, 2) }} {{ __('Currency') }}</td>
                                                 <td>
                                                     <span class="badge {{ $order->latestStatus->status->class }}">

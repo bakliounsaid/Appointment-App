@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Product;
 
+use App\Models\Category;
 use App\Models\Media;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Encoders\WebpEncoder;
 use Intervention\Image\ImageManager;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -20,9 +22,12 @@ class Show extends Component
 
     public Product $product;
     public $available;
+    public $category;
 
     public $images = [];
     public $newImages = [];
+    public $language;
+
 
     public function rules()
     {
@@ -32,6 +37,7 @@ class Show extends Component
             'product.name_ar' => 'required|string|max:255',
             'product.description_ar' => 'required|string|max:255',
             'product.description_fr' => 'required|string|max:255',
+            'category' => 'required|exists:Categories,id',
             'product.price' => 'required|numeric',
             'available' => 'required|boolean',
         ];
@@ -40,6 +46,9 @@ class Show extends Component
     public function mount()
     {
         $this->available = $this->product->available ? true : false;
+        $this->language = app()->getLocale();
+
+        $this->category = $this->product->category->id;
         foreach ($this->product->media as $media) {
             $this->images[] = $media->url;
         }
@@ -59,16 +68,16 @@ class Show extends Component
         $this->images = array_values($this->images);
     }
 
- public function save()
+    public function save()
     {
 
         try {
-                    $this->validate();
+            $this->validate();
 
             DB::transaction(function () {
 
 
-                   $manager = ImageManager::gd();
+                $manager = ImageManager::gd();
 
 
                 $keptUrls = array_filter($this->images, function ($item) {
@@ -78,9 +87,9 @@ class Show extends Component
                 $urlsToDelete = array_diff($currentUrls, $keptUrls);
 
                 foreach ($urlsToDelete as $url) {
-                 if (Storage::disk('public')->exists($url)) {
-                     Storage::disk('public')->delete($url);
-                }
+                    if (Storage::disk('public')->exists($url)) {
+                        Storage::disk('public')->delete($url);
+                    }
 
                     $this->product->media()->where('url', $url)->delete();
                 }
@@ -102,6 +111,8 @@ class Show extends Component
                     }
                 }
                 $this->product->available = $this->available;
+                $this->product->category()->associate($this->category);
+
                 $this->product->save();
                 alert()->success(__('Updated successfully'), __('Product updated successfully'));
                 $this->redirectRoute('admin.product.index');
@@ -115,6 +126,12 @@ class Show extends Component
             ]);
         }
     }
+    #[Computed()]
+    public function categories()
+    {
+        return Category::get();
+    }
+
     #[Layout('components.layouts.admin.app')]
 
     public function render()

@@ -54,7 +54,7 @@ class Index extends Component
     {
         try {
             $delivery = new DeliveryContext("Zrexpress");
-            $orders = Order::whereHas('latestStatus', function ($query) {
+            $orders = Order::where('delivery_service','ZR')->whereHas('latestStatus', function ($query) {
                 $query->whereHas('status', function ($query) {
                     $query->whereIn('name', ['InDelivery', 'Alert']);;
                 });

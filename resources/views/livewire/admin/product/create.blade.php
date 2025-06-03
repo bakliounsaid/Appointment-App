@@ -16,8 +16,8 @@
                             <label for="images" class="upload-btn cursor-pointer">
                                 {{ __('Select Product Images') }}
                             </label>
-                            <input multiple type="file" id="images" wire:model="newImages" class="d-none @error('images') is-invalid @enderror"
-                                accept="image/*">
+                            <input multiple type="file" id="images" wire:model="newImages"
+                                class="d-none @error('images') is-invalid @enderror" accept="image/*">
                             @error('images')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -77,7 +77,7 @@
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="col-md-6">
+                        {{--     <div class="col-md-6">
                             <label for="available" class="form-label d-block">{{ __('Available') }}</label>
                             <div class="form-check form-switch">
                                 <input class="form-check-input switch-success" type="checkbox" id="available"
@@ -85,6 +85,20 @@
                             </div>
                             @error('available')
                                 <span class="text-danger small">{{ $message }}</span>
+                            @enderror
+                        </div> --}}
+                        <div class="col-md-6">
+                            <label for="category" class="form-label">{{ __('Category') }}</label>
+                            <select id="category"
+                                class="form-control @error('category') is-invalid @enderror"
+                                wire:model.defer="category">
+                                <option value="">{{ __('Select a Category') }}</option>
+                                @foreach ($this->categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->{'name_' . $language} }}</option>
+                                @endforeach
+                            </select>
+                            @error('category')
+                                <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-end m-3">

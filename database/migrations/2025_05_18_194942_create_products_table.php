@@ -19,6 +19,7 @@ return new class extends Migration
         $table->text('description_fr');
         $table->boolean('available')->default(true);
         $table->decimal('price', 10, 2);
+        $table->foreignId('category_id')->nullable()->constrained('categories');
         $table->softDeletes();
         $table->timestamps();
     });
