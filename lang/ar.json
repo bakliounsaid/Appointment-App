@@ -216,7 +216,12 @@
     "Confirm": "تاكيد",
     "Appointments Statistic": "إحصائيات المواعيد",
     "Order Statistic": "إحصائيات الطلبات",
-    "Pending Orders": "الطلبات المعلقة"
-
+    "Pending Orders": "الطلبات المعلقة",
+    "Today": "اليوم",
+    "This Month": "هذا الشهر",
+    "Last Month": "الشهر الماضي",
+    "This Year": "هذه السنة",
+    "Last Year": "السنة الماضية",
+    "Last 7 Days": "آخر 7 أيام"
 
 }

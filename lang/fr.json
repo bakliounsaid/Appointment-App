@@ -214,5 +214,13 @@
     "Could not change this order delivery service!": "Impossible de modifier le service de livraison de cette commande !",
     "Appointments Statistic": "Statistique des rendez-vous",
     "Order Statistic": "Statistique des commandes",
-    "Pending Orders": "Commandes en attente"
+    "Pending Orders": "Commandes en attente",
+    "Today": "Aujourd'hui",
+    "This Month": "Ce mois-ci",
+    "Last Month": "Le mois dernier",
+    "This Year": "Cette année",
+    "Last Year": "L'année dernière",
+    "Last 7 Days": "Les 7 derniers jours"
+
+
 }

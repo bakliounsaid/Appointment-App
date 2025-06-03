@@ -1,7 +1,17 @@
 <main class="content">
-    <div class="container-fluid p-0">
 
-        <!-- Section 1: Rdv STAT -->
+    <div class="container-fluid p-0">
+        <div class="mb-3 d-flex justify-content-end">
+            <select id="quotationFilter" class="form-select w-auto" wire:model.live="quotationFilter">
+                <option value="today">{{ __('Today') }}</option>
+                <option value="last_7_days">{{ __('Last 7 Days') }}</option>
+                <option value="this_month">{{ __('This Month') }}</option>
+                <option value="last_month">{{ __('Last Month') }}</option>
+                <option value="this_year">{{ __('This Year') }}</option>
+                <option value="last_year">{{ __('Last Year') }}</option>
+            </select>
+        </div>
+
         <h1 class="h3 mb-3"><strong>{{ __('Appointments Statistic') }}</strong></h1>
         <div class="row">
             <div class="col-sm-6">
@@ -67,7 +77,9 @@
                                 </div>
                             </div>
                         </div>
-                        <h1 class="mt-1 mb-3">{{ $this->weeklyQuotation }} {{ __('Currency') }}</h1>
+                        <h1 class="mt-1 mb-3">
+                            <td>{{ number_format($this->quotationAppointment, 2) }} {{ __('Currency') }}</td>
+                        </h1>
                     </div>
                 </div>
             </div>
@@ -90,13 +102,13 @@
                                 </div>
                             </div>
                         </div>
-                        <h1 class="mt-1 mb-3">{{ $this->pendingOrders}}</h1>
+                        <h1 class="mt-1 mb-3">{{ $this->pendingOrders }}</h1>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6">
-               <div class="card">
+                <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col mt-0">
@@ -108,7 +120,9 @@
                                 </div>
                             </div>
                         </div>
-                        <h1 class="mt-1 mb-3">{{ $this->weeklyQuotation }} {{ __('Currency') }}</h1>
+                        <h1 class="mt-1 mb-3">
+                            <td>{{ number_format($this->quotationOrder, 2) }} {{ __('Currency') }}</td>
+                        </h1>
                     </div>
                 </div>
             </div>
