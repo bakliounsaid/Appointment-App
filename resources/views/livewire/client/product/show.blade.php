@@ -2,9 +2,9 @@
     <div class="container">
         @if (!$successPage)
 
-            <div class="row justify-content-center">
+            <div class="row">
                 {{-- Left: Fixed size big image + thumbnails --}}
-                <div class="col-lg-5 mb-4">
+                <div class="col-lg-6 mb-4">
                     <div class="card border-0 rounded-4 shadow-sm">
                         <img id="mainImage" src="{{ asset('storage/' . $product->media->first()->url) }}"
                             alt="{{ $product->name_ar }}" class="img-fluid rounded-top-4 object-fit-contain"
@@ -24,7 +24,7 @@
                 </div>
 
                 {{-- Right: Product info + buy form --}}
-                <div class="card rounded-4 shadow-sm col-lg-6 d-flex flex-column justify-content-center">
+                <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <h2 class="text-black fw-bold mb-3">{{ $product->{'name_' . $language} }}</h2>
                     <p class="text-muted mb-4" style="line-height: 1.4;">{{ $product->{'description_' . $language} }}
                     </p>
@@ -43,22 +43,6 @@
                                         <span class="text-danger small">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            @endif
-                            @if ($this->deliveryPrice && $this->productPrice)
-                                <div class="col-md-12" >
-                                    <p style="font-size: 14px !important;" class="fw-semibold mt-3">{{ __('Product Price') }}:
-                                        <span class="text-primary">{{ number_format($this->productPrice, 2) }}
-                                            {{ __('Currency') }}</span>
-                                    </p>
-                                    <p style="font-size: 14px !important;" class="fw-semibold mt-3">{{ __('Delivery Price') }}:
-                                        <span class="text-primary">{{ number_format($this->deliveryPrice, 2) }}
-                                            {{ __('Currency') }}</span>
-                                    </p>
-                                    <p style="font-size: 14px !important;" class="fw-bold">{{ __('Total Price') }}:
-                                        <span
-                                            class="text-success">{{ number_format($this->productPrice + $this->deliveryPrice, 2) }}
-                                            {{ __('Currency') }}</span>
-                                    </p>
                                 <div class="col-md-6">
                                     <label for="phone" class="form-label fw-semibold">{{ __('Phone') }}</label>
                                     <input type="tel" id="phone" wire:model.defer="phone" class="form-control"

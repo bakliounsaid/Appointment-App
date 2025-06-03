@@ -13,7 +13,7 @@
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-10">
                     <div class="contact-form appointment-form">
-                        <form wire:submit.prevent="save">
+                   <form wire:submit.prevent="save">
                             @if (!$successPage)
                                 <div class="row g-4">
                                     <div class="col-md-6">
@@ -40,17 +40,6 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    @error('date') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">{{ __('Description') }}</label>
-                                    <textarea placeholder="{{ __('Description') }}" wire:model.defer="description"></textarea>
-                                    @error('description') <span class="text-danger">{{ $message }}</span> @enderror
-                                </div>
-                                <div class="col-12">
-                                    <h3 class="form-label"><u>{{ __('Note') }} :</u></h3>                                    <p style="font-size: 15px !important;" class="text-blue section-heading">
-                                        {{ __('The placement fee is 3000 Da and must be deducted from the overall quotation')}}
-                                    </p>
                                     <div class="col-md-6">
                                         <label class="form-label">{{ __('Phone Two') }}</label>
                                         <input type="text" placeholder="{{ __('Phone Two') }}"
