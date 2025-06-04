@@ -919,3 +919,15 @@ p {
  .category-filter {
      box-shadow: 0 4px 6px rgba(255, 215, 0, 0.2);
  }
+
+
+/* Gold button animation */
+@keyframes goldShimmer {
+    0% {
+        background-position: -100% 0;
+    }
+
+    100% {
+        background-position: 100% 0;
+    }
+}

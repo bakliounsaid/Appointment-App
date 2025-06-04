@@ -33,6 +33,28 @@
                         <h3 class="text-success fw-bold mb-4">{{ number_format($product->price, 2) }}
                             {{ __('Currency') }}
                         </h3>
+                        @if ($product->category->name_fr == 'Rideaux')
+                        <a href="#contact"
+                        class="btn btn-lg fw-bold px-2 py-1 position-relative overflow-hidden"
+                        style="
+                                display: inline-block;
+                                background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+                                border: 2px solid #b8941f;
+                                color: #2c2c2c;
+                                border-radius: 50px;
+                                transition: all 0.3s ease;
+                                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+                                text-decoration: none;
+                        "
+                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(212, 175, 55, 0.4)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(212, 175, 55, 0.3)'"
+                        >
+                            <span class="d-flex align-items-center justify-content-center">
+                                <span class="me-2">📞</span>
+                                Contact Us
+                            </span>
+                        </a>
+                        @endif
                         @if ($product->category->name_fr != 'Rideaux')
                             <form wire:submit.prevent="save">
                                 @csrf
