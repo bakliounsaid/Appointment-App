@@ -51,7 +51,7 @@
                         >
                             <span class="d-flex align-items-center justify-content-center">
                                 <span class="me-2">📞</span>
-                                Contact Us
+                            {{ "Contact Us" }}
                             </span>
                         </a>
                         @endif
