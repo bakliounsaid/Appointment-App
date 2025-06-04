@@ -83,8 +83,11 @@ class Show extends Component
             return City::find($this->selectedCity)->state->zr_domicile;
         } else return null;
     }
-
-
+    #[Computed()]
+    public function relatedProducts()
+    {
+        return Product::where('available', true)->orderByDesc('id')->where("category_id", $this->product->category->id)->get();
+    }
     public function updatedSelectedState()
     {
         $this->selectedCity = null;
@@ -117,7 +120,7 @@ class Show extends Component
                     'fullname' => $this->name,
                     'client_phone' => $this->phone,
                     'delivery_method' => $this->deliveryType,
-                    'client_email' => $this->email ?? null ,
+                    'client_email' => $this->email ?? null,
                     'delivery_fees' => $this->deliveryPrice,
                     'city_id' => $this->selectedCity ?? State::find($this->selectedState)->cities->first()->id,
                 ]);

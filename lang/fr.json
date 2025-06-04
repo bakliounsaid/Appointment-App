@@ -220,7 +220,11 @@
     "Last Month": "Le mois dernier",
     "This Year": "Cette année",
     "Last Year": "L'année dernière",
-    "Last 7 Days": "Les 7 derniers jours"
-
-
+    "Last 7 Days": "Les 7 derniers jours",
+    "All": "Tous",
+    "Select Product Images": "Sélectionner les images du produit",
+    "Product Images": "Images du produit",
+    "Related Products": "Produits associés",
+    "Next": "Suivant",
+    "Previous": "Précédent"
 }

@@ -1,19 +1,19 @@
-    <section class="sections-bg-gradient container-fluid" id="contact" style="padding: 100px 0;">
+    <section class="sections-bg-gradient appointment-section container-fluid" id="contact" style="padding: 100px 0;">
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-12">
-                    <h2 class="text-black section-heading">
-                        {{ __('Request an Appointment') }}
+                    <h2 style="color: #F5F5F5 !important;" class="section-heading">
+                        {{ __('Request an Appointment')}}
                         <span class="heading-border-bottom"></span>
                     </h2>
-                    <p>{{ __('Request an appointment to discuss your work-related needs') }}</p>
+                    <p style="color: #F5F5F5;">{{ __('Request an appointment to discuss your work-related needs')}}</p>
                 </div>
             </div>
 
-            <div class="row g-4">
-                <div class="col-lg-12">
-                    <div class="contact-form">
-                        <form wire:submit.prevent="save">
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="contact-form appointment-form">
+                   <form wire:submit.prevent="save">
                             @if (!$successPage)
                                 <div class="row g-4">
                                     <div class="col-md-6">
@@ -188,3 +188,26 @@
             </div>
         </div>
     </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const section = document.getElementById("contact");
+
+        const images = [
+            "{{ asset('images/bg/1.png') }}",
+            "{{ asset('images/bg/2.png') }}",
+            "{{ asset('images/bg/3.png') }}",
+            "{{ asset('images/bg/4.png') }}",
+            "{{ asset('images/bg/5.png') }}",
+            "{{ asset('images/bg/6.png') }}"
+        ];
+
+        let index = 0;
+        section.style.backgroundImage = `url(${images[index]})`;
+
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            section.style.backgroundImage = `url(${images[index]})`;
+        }, 4000);
+    });
+</script>

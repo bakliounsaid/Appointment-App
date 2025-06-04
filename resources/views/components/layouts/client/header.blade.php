@@ -2,7 +2,7 @@
     <div class="header-container">
         <div class="">
             <a href="{{ route('client.home') }}" style="display: flex; align-items: center;">
-                <img src="{{ asset('assets/img/photos/logo.jpg') }}" class="hp-logo" alt="Logo">
+                <img src="{{ asset('assets/img/photos/logo.png') }}" class="hp-logo" alt="Logo">
             </a>
         </div>
         <nav class="nav d-none d-md-block">
@@ -15,7 +15,7 @@
             <button wire:click="toggleLanguage" class="language-btn d-flex gap-2"
                 style="background-color: transparent; border: 1px solid rgba(212,175,55,0.3); color: #F5F5F5; padding: 0.5rem 1rem; border-radius: 6px;">
                 <span style="color: #D4AF37;">
-                    {{ strtoupper($language === 'fr' ? ('العربية') : 'Français') }}
+                    {{ strtoupper($language === 'fr' ? ('العربية') : 'FranÇais') }}
                 </span>
             </button>
 

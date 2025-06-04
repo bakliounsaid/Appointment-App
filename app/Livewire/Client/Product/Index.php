@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Client\Product;
 
+use App\Models\Category;
 use App\Models\Product;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
@@ -14,6 +15,7 @@ class Index extends Component
     public $paginate = 10;
     public $language;
     public $search = "";
+    public $selectedCategory = null;
     public function  mount()
     {
         $this->language = app()->getLocale();
@@ -21,9 +23,16 @@ class Index extends Component
     #[Computed()]
     public function Products()
     {
-        return Product::where('available', true)->orderByDesc('id')->when(trim($this->search) != "", function ($query) {
+        return Product::where('available', true)->orderByDesc('id')  ->when($this->selectedCategory, function ($query) {
+            $query->where('category_id', $this->selectedCategory);
+        })->when(trim($this->search) != "", function ($query) {
             $query->search(trim($this->search));
         });
+    }
+      #[Computed()]
+    public function categories()
+    {
+        return Category::get();
     }
     #[Layout('components.layouts.client.app')]
 
