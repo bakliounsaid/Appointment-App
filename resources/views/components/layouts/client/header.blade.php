@@ -2,7 +2,7 @@
     <div class="header-container">
         <div class="">
             <a href="{{ route('client.home') }}" style="display: flex; align-items: center;">
-                <img src="{{ asset('assets/img/photos/logo.jpg') }}" class="hp-logo" alt="Logo">
+                <img src="{{ asset('assets/img/photos/logo.png') }}" class="hp-logo" alt="Logo">
             </a>
         </div>
         <nav class="nav d-none d-md-block">

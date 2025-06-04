@@ -823,7 +823,12 @@ p {
     margin-inline: auto !important;
 }
 
-  #products, #contact.appointment-section, #product-detail {
+.related-products-img {
+    height: 250px;
+    object-fit: cover;
+}
+
+  #products, #contact.appointment-section {
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
@@ -833,7 +838,7 @@ p {
     }
 
 
-#products::before, #contact.appointment-section::before, #product-detail::before {
+#products::before, #contact.appointment-section::before {
     content: "";
     position: absolute;
     top: 0; left: 0;

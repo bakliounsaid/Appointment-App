@@ -1,3 +1,4 @@
+<div>
 <section class="sections-bg-gradient container-fluid" id="product-detail" style="padding: 100px 0;">
     <div class="container">
         @if (!$successPage)
@@ -182,6 +183,97 @@
     </div>
 </section>
 
+<section class="sections-bg-gradient container-fluid py-5">
+    <div class="container">
+
+        <h2 class="section-heading text-center mb-4" style="font-size: 25px;">
+            {{ __('Related Products') }}
+            <span class="heading-border-bottom" style="left: 0%; transform: none;"></span>
+        </h2>
+
+        <div id="relatedProductsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                {{-- Slide 1 --}}
+                <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow-sm rounded-4 border-0">
+                                <img src="{{ asset('images/bg/1.png') }}" class="related-products-img rounded-top-4" alt="related-product-img">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Rideau Salon</h5>
+                                    <p class="card-text text-muted small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eum a rerum est debitis repellendus, libero, laborum expedita eveniet sed neque. Repudiandae excepturi harum nihil autem ad officia molestiae voluptatibus!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow-sm rounded-4 border-0">
+                                <img src="{{ asset('images/bg/2.png') }}" class="related-products-img rounded-top-4" alt="related-product-img">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Rideau Salon</h5>
+                                    <p class="card-text text-muted small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eum a rerum est debitis repellendus, libero, laborum expedita eveniet sed neque. Repudiandae excepturi harum nihil autem ad officia molestiae voluptatibus!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow-sm rounded-4 border-0">
+                                <img src="{{ asset('images/bg/3.png') }}" class="related-products-img rounded-top-4" alt="related-product-img">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Rideau Salon</h5>
+                                    <p class="card-text text-muted small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eum a rerum est debitis repellendus, libero, laborum expedita eveniet sed neque. Repudiandae excepturi harum nihil autem ad officia molestiae voluptatibus!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Slide 2 --}}
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow-sm rounded-4 border-0">
+                                <img src="{{ asset('images/bg/4.png') }}" class="related-products-img rounded-top-4" alt="related-product-img">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Rideau Salon</h5>
+                                    <p class="card-text text-muted small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eum a rerum est debitis repellendus, libero, laborum expedita eveniet sed neque. Repudiandae excepturi harum nihil autem ad officia molestiae voluptatibus!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow-sm rounded-4 border-0">
+                                <img src="{{ asset('images/bg/5.png') }}" class="related-products-img rounded-top-4" alt="related-product-img">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Rideau Salon</h5>
+                                    <p class="card-text text-muted small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eum a rerum est debitis repellendus, libero, laborum expedita eveniet sed neque. Repudiandae excepturi harum nihil autem ad officia molestiae voluptatibus!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow-sm rounded-4 border-0">
+                                <img src="{{ asset('images/bg/6.png') }}" class="related-products-img rounded-top-4" alt="related-product-img">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Rideau Salon</h5>
+                                    <p class="card-text text-muted small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eum a rerum est debitis repellendus, libero, laborum expedita eveniet sed neque. Repudiandae excepturi harum nihil autem ad officia molestiae voluptatibus!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {{-- Carousel Controls --}}
+            <button class="carousel-control-prev" type="button" data-bs-target="#relatedProductsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#relatedProductsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+</div>
 <script>
     const thumbnails = document.querySelectorAll('.thumbnail-image');
     const mainImage = document.getElementById('mainImage');
