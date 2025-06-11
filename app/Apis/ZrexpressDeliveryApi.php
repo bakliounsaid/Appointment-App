@@ -47,7 +47,6 @@ class ZrexpressDeliveryApi extends HttpHeaders implements DeliveryStrategy
                     "Source" => false
                 ]]
             ]);
-             Log::alert($response);
             if ($response->failed()) {
                 Log::error("An error has occured when trying to access the route '" . $this->deliveryApiService?->url . "add_colis' for delivery service " . $this->deliveryApiService?->name);
                 return false;
