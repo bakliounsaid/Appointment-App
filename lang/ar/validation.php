@@ -193,6 +193,8 @@ return [
         'phone' => 'الهاتف',
         'firstname' => 'الاسم الأول',
         'lastname' => 'اسم العائلة',
-        'windows' => 'نوافذ'
+        'windows' => 'نوافذ',
+        'phone_confirmation' => 'تأكيد رقم الهاتف الأول',
+
     ],
 ];

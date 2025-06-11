@@ -2,12 +2,10 @@
 
 namespace App\Livewire\Admin\Order;
 
-use App\Mail\ZrConfirmation;
 use App\Models\Order;
 use App\Models\Status;
 use App\Services\DeliveryContext;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -33,10 +31,16 @@ class Show extends Component
                 $delivery = new DeliveryContext("Zrexpress");
                 $delivery->createOrder($this->order);
                 $this->order->refresh();
-                $this->dispatch('show-toast-alert', [
-                    "text" => __('Order created in delivery service successfully!'),
-                    'icon' => "success"
-                ]);
+                if ($this->order->tracking_code)
+                    $this->dispatch('show-toast-alert', [
+                        "text" => __('Order created in delivery service successfully!'),
+                        'icon' => "success"
+                    ]);
+                else
+                    $this->dispatch('show-toast-alert', [
+                        "text" => __('Could not create this order in delivery service this Order!'),
+                        'icon' => "warning"
+                    ]);
             }
         } catch (\Throwable $th) {
             Log::alert($th->getMessage());

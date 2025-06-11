@@ -40,13 +40,14 @@ class ZrexpressDeliveryApi extends HttpHeaders implements DeliveryStrategy
                     'Adresse' => (($order->client_address . ',') ??  '') . $order->city->fr_name . ',' . $order->city->state->fr_name,
                     'IDWilaya' => $order->city->state->id,
                     'Commune' => $order->city->id,
-                    'Total' => $order->totalNoDelivery,
+                    'Total' => $order->total,
                     "Note" => "",
                     'TProduit' => $order->products->first()->name_fr,
                     "id_Externe" => $order->id,  // Votre ID ou Tracking
                     "Source" => false
                 ]]
             ]);
+             Log::alert($response);
             if ($response->failed()) {
                 Log::error("An error has occured when trying to access the route '" . $this->deliveryApiService?->url . "add_colis' for delivery service " . $this->deliveryApiService?->name);
                 return false;

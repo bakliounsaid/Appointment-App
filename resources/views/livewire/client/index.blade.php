@@ -3,17 +3,17 @@
             <div class="row text-center mb-5">
                 <div class="col-12">
                     <h2 style="color: #F5F5F5 !important;" class="section-heading">
-                        {{ __('Request an Appointment')}}
+                        {{ __('Request an Appointment') }}
                         <span class="heading-border-bottom"></span>
                     </h2>
-                    <p style="color: #F5F5F5;">{{ __('Request an appointment to discuss your work-related needs')}}</p>
+                    <p style="color: #F5F5F5;">{{ __('Request an appointment to discuss your work-related needs') }}</p>
                 </div>
             </div>
 
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-10">
                     <div class="contact-form appointment-form">
-                   <form wire:submit.prevent="save">
+                        <form wire:submit.prevent="save">
                             @if (!$successPage)
                                 <div class="row g-4">
                                     <div class="col-md-6">
@@ -21,7 +21,7 @@
                                         <input type="text" placeholder="{{ __('Firstname') }}"
                                             wire:model.defer="firstname">
                                         @error('firstname')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
@@ -29,7 +29,7 @@
                                         <input type="text" placeholder="{{ __('Lastname') }}"
                                             wire:model.defer="lastname">
                                         @error('lastname')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
@@ -37,15 +37,25 @@
                                         <input type="text" placeholder="{{ __('Phone One') }}"
                                             wire:model.defer="phone">
                                         @error('phone')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">{{ __('Confirm Phone One') }}</label>
+                                        <input type="text" placeholder="{{ __('Confirm Phone One') }}"
+                                            wire:model.defer="phone_confirmation">
+                                        @error('phone_confirmation')
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">{{ __('Phone Two') }}</label>
+                                        <span class="text-muted small">({{ __('optional') }})</span>
+
                                         <input type="text" placeholder="{{ __('Phone Two') }}"
                                             wire:model.defer="phoneTwo">
                                         @error('phoneTwo')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
@@ -53,15 +63,27 @@
                                         <input type="number" min="1" placeholder="{{ __('Windows Number') }}"
                                             wire:model.defer="windows">
                                         @error('windows')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">{{ __('Email') }}</label>
+                                        <span class="text-muted small">({{ __('optional') }})</span>
+
                                         <input type="email" placeholder="{{ __('Email') }}"
                                             wire:model.defer="email">
                                         @error('email')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                      <div class="col-md-6">
+                                        <label class="form-label">{{ __('Address') }}</label>
+                                        <span class="text-muted small">({{ __('optional') }})</span>
+
+                                        <input type="text" placeholder="{{ __('Address') }}"
+                                            wire:model.defer="address">
+                                        @error('address')
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
@@ -83,7 +105,7 @@
                                             </select>
                                         </div>
                                         @error('state')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
@@ -105,23 +127,18 @@
                                             </select>
                                         </div>
                                         @error('city')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">{{ __('Address') }}</label>
-                                        <input type="text" placeholder="{{ __('Address') }}"
-                                            wire:model.defer="address">
-                                        @error('address')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
+
                                     <div class="col-md-6">
                                         <label class="form-label">{{ __('Localisation') }}(GPS)</label>
+                                        <span class="text-muted small">({{ __('optional') }})</span>
+
                                         <input type="text" placeholder="{{ __('Localisation') }}"
                                             wire:model.defer="location">
                                         @error('location')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
@@ -139,14 +156,16 @@
                                                 class="form-control border-gold-500" id="departureDate">
                                         </div>
                                         @error('date')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <label class="form-label">{{ __('Description') }}</label>
+                                        <span class="text-muted small">({{ __('optional') }})</span>
+
                                         <textarea placeholder="{{ __('Description') }}" wire:model.defer="description"></textarea>
                                         @error('description')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-12">
@@ -175,11 +194,11 @@
                                         {{ __('You will be contacted soon.') }}
                                     </p>
                                     <p class="mt-3">
-                                     <a href="{{ route('client.product.index') }}"
-                                        class="text-primary text-decoration-underline">
-                                        {{ __('Our Products') }}
-                                    </a>
-                                </p>
+                                        <a href="{{ route('client.product.index') }}"
+                                            class="text-primary text-decoration-underline">
+                                            {{ __('Our Products') }}
+                                        </a>
+                                    </p>
                                 </div>
                             @endif
                         </form>
@@ -189,25 +208,21 @@
         </div>
     </section>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const section = document.getElementById("contact");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const section = document.getElementById("contact");
 
-        const images = [
-            "{{ asset('images/bg/1.png') }}",
-            "{{ asset('images/bg/2.png') }}",
-            "{{ asset('images/bg/3.png') }}",
-            "{{ asset('images/bg/4.png') }}",
-            "{{ asset('images/bg/5.png') }}",
-            "{{ asset('images/bg/6.png') }}"
-        ];
+            const images = [
+                "{{ asset('images/bg/5.png') }}",
+                "{{ asset('images/bg/6.png') }}"
+            ];
 
-        let index = 0;
-        section.style.backgroundImage = `url(${images[index]})`;
-
-        setInterval(() => {
-            index = (index + 1) % images.length;
+            let index = 0;
             section.style.backgroundImage = `url(${images[index]})`;
-        }, 4000);
-    });
-</script>
+
+            setInterval(() => {
+                index = (index + 1) % images.length;
+                section.style.backgroundImage = `url(${images[index]})`;
+            }, 4000);
+        });
+    </script>

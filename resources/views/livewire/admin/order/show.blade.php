@@ -16,12 +16,16 @@
                             wire:click="$dispatch('creation-confirmation', { function:'externService',
                 text: '{{ __('cretion_order_in_zr_delivery_service') }}'})"
                             wire:loading.attr="disabled" wire:loading.class="opacity-50">
-                            {{ __('InDelivery') }}
+                          <span wire:loading wire:target="createOrderInDeliveryService" class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true" style="margin-inline-end: 0.25rem;"></span>
+                                 {{ __('InDelivery') }}
                         </button>
                     @elseif ($order->latestStatus->status->name == 'Ongoing' && $order->delivery_service == 'Default')
                         <button class="btn btn-primary text-white" type="button" wire:click="changeStatus('InDelivery')"
                             wire:loading.attr="disabled" wire:loading.class="opacity-50">
-                            {{ __('InDelivery') }}
+                            <span wire:loading wire:target="changeStatus" class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true" style="margin-inline-end: 0.25rem;"></span>
+                                {{ __('InDelivery') }}
                         </button>
                     @endif
 
@@ -29,22 +33,30 @@
                     @if ($order->latestStatus->status->name == 'Pending')
                         <button class="btn bg-warning text-dark" type="button" wire:click="changeStatus('Ongoing')"
                             wire:loading.attr="disabled" wire:loading.class="opacity-50">
-                            {{ __('Confirm') }}
+                           <span wire:loading wire:target="changeStatus" class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true" style="margin-inline-end: 0.25rem;"></span>
+                               {{ __('Confirm') }}
                         </button>
                     @endif
 
                     @if (in_array($order->latestStatus->status->name, ['InDelivery', 'Alert']))
                         <button class="btn bg-warning text-dark" type="button" wire:click="changeStatus('Alert')"
                             wire:loading.attr="disabled" wire:loading.class="opacity-50">
-                            {{ __('Alert') }}
+                           <span wire:loading wire:target="changeStatus" class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true" style="margin-inline-end: 0.25rem;"></span>
+                                {{ __('Alert') }}
                         </button>
                         <button class="btn bg-danger text-white" type="button" wire:click="changeStatus('Returned')"
                             wire:loading.attr="disabled" wire:loading.class="opacity-50">
-                            {{ __('Returned') }}
+                            <span wire:loading wire:target="changeStatus" class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true" style="margin-inline-end: 0.25rem;"></span>
+                                {{ __('Returned') }}
                         </button>
                         <button class="btn bg-success text-white" type="button" wire:click="changeStatus('Delivered')"
                             wire:loading.attr="disabled" wire:loading.class="opacity-50">
-                            {{ __('Delivered') }}
+                           <span wire:loading wire:target="changeStatus" class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true" style="margin-inline-end: 0.25rem;"></span>
+                                {{ __('Delivered') }}
                         </button>
                     @endif
                 </div>
@@ -136,8 +148,7 @@
                                     @endif
                                 </td>
                                 <td>{{ number_format($product->sell_price, 2) }} {{ __('Currency') }}</td>
-                                <td>{{ number_format($product->sell_price * $product->quantity, 2) }}
-                                    {{ __('Currency') }}</td>
+                                <td>{{ number_format($order->totalNoDelivery, 2) }} {{ __('Currency') }}</td>
                             </tr>
                         @endforeach
                     </tbody>

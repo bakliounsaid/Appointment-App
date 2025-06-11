@@ -160,7 +160,9 @@ return [
     'phone' => 'Téléphone',
     'firstname' => 'Prénom',
     'lastname' => 'Nom de famille',
-    'windows' => 'fenêtres'
+    'windows' => 'fenêtres',
+    'phone_confirmation' => 'Confirmer Téléphone 1',
+
   ],
 ];
 

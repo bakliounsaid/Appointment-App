@@ -78,12 +78,16 @@ class Order extends Model
     public function dimension()
 {
         return $this->hasMany(Dimension::class);
-
     }
     public function totalLargeur(): Attribute
     {
         return Attribute::get(function () {
-                return $this->dimension->sum('largeur');
+            return $this->dimension->pluck('largeur')
+                ->filter(fn($val) => is_numeric($val))
+                ->map(function ($val) {
+                    return ceil($val * 2) / 2;
+                })
+                ->sum();
         });
     }
 }

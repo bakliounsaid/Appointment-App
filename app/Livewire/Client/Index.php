@@ -29,13 +29,15 @@ class Index extends Component
     public $locale;
     public $date;
     public $pending;
-    public $windows;
+    public $windows = 1;
     public $successPage = false;
+    public $phone_confirmation;
 
     protected $rules = [
         'firstname'    => 'required|string|max:50',
         'lastname'     => 'required|string|max:50',
         'phone'        => 'required|numeric|digits_between:8,15',
+        'phone_confirmation' => 'required|same:phone',
         'phoneTwo'        => 'nullable|numeric|digits_between:8,15',
         'email'        => 'nullable|email',
         'state'        => 'required|exists:states,id',

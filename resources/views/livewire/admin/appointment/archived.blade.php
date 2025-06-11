@@ -64,7 +64,7 @@
                                                 <td>{{ $appointment->city->{$language.'_name'} }}</td>
                                                 <td>{{ $appointment->city->state->{$language.'_name'} }}</td>
                                                 <td>{{ $appointment->windows }} </td>
-                                                <td>{{ $appointment->price }} </td>
+                                                <td>{{ number_format($appointment->price , 2) }} {{ __('Currency') }} </td>
                                                 <td>{{ $appointment->admin_date }} </td>
                                                 <td>{{ $appointment->assembly_date }} </td>
                                                 <td class="text-end">

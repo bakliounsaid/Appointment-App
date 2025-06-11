@@ -44,7 +44,7 @@
     "Contact Information": "Informations de contact",
     "Appointment Created successfully!": "Rendez-vous créé avec succès !",
     "Could not create this appointment!": "Impossible de créer ce rendez-vous !",
-    "showing_entries": "Affichage de :from à :to sur :total entrées",
+    "showing_entries": " ",
     "Pending Appointments": "Rendez-vous en attente",
     "Search": "Rechercher",
     "Appointments": "Rendez-vous",
@@ -227,6 +227,10 @@
     "Related Products": "Produits associés",
     "Next": "Suivant",
     "Previous": "Précédent",
-      "Contact Us": "Contactez-nous"
+    "Contact Us": "Contactez-nous",
+    "optional": "Facultatif",
+    "No products found.":"Aucun produit trouvé.",
+    "Confirm Phone One" :"Confirmer Téléphone 1",
+    "The entered value will be rounded to the nearest standard dimension":"La valeur saisie sera arrondie à la dimension standard la plus proche"
 
 }

@@ -44,7 +44,7 @@
     "Contact Information": "معلومات الاتصال",
     "Appointment Created successfully!": "تم إنشاء الموعد بنجاح!",
     "Could not create this appointment!": "تعذر إنشاء هذا الموعد!",
-    "showing_entries": "عرض من :from إلى :to من أصل :total مدخلات",
+    "showing_entries": " ",
     "Pending Appointments": "المواعيد المعلقة",
     "Search": "بحث",
     "Appointments": "المواعيد",
@@ -229,5 +229,12 @@
     "Related Products": "منتجات ذات صلة",
     "Next": "التالي",
     "Previous": "السابق",
- "Contact Us": "اتصل بنا"
+    "Contact Us": "اتصل بنا",
+    "optional": "اختياري",
+    "No products found.":"لم يتم العثور على منتجات.",
+    "Confirm Phone One" : "تأكيد رقم الهاتف الأول",
+    "The entered value will be rounded to the nearest standard dimension":"سيتم تقريب القيمة المدخلة إلى أقرب بُعد قياسي"
+
+
+
 }

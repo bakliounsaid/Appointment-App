@@ -1,7 +1,21 @@
+@section('meta')
+    <meta property="og:title" content="{{ $product->name_fr }}" />
+    <meta property="og:description" content="{{ Str::limit(strip_tags($product->description_fr), 150) }}" />
+    <meta property="og:image" content="{{ asset('storage/' . $product->media->first()->url) }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:type" content="product" />
+
+    <!-- Twitter -->
+    <meta name="twitter:title" content="{{ $product->name_fr }}" />
+    <meta name="twitter:description" content="{{ Str::limit(strip_tags($product->description_fr), 150) }}" />
+    <meta name="twitter:image" content="{{ asset('storage/' . $product->media->first()->url) }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+@endsection
 <div>
-    <section class="sections-bg-gradient container-fluid" id="product-detail" style="padding: 100px 0;">
-        <div class="container">
-            @if (!$successPage)
+    @if (!$successPage)
+        <section class="sections-bg-gradient container-fluid" id="product-detail" style="padding: 100px 0;">
+            <div class="container">
+
 
                 <div class="row">
                     {{-- Left: Fixed size big image + thumbnails --}}
@@ -34,9 +48,8 @@
                             {{ __('Currency') }}
                         </h3>
                         @if ($product->category->name_fr == 'Rideaux')
-                        <a href="#contact"
-                        class="btn btn-lg fw-bold px-2 py-1 position-relative overflow-hidden"
-                        style="
+                            <a href="#contact" class="btn btn-lg fw-bold px-2 py-1 position-relative overflow-hidden"
+                                style="
                                 display: inline-block;
                                 background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
                                 border: 2px solid #b8941f;
@@ -46,14 +59,13 @@
                                 box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
                                 text-decoration: none;
                         "
-                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(212, 175, 55, 0.4)'"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(212, 175, 55, 0.3)'"
-                        >
-                            <span class="d-flex align-items-center justify-content-center">
-                                <span class="me-2">📞</span>
-                            {{ "Contact Us" }}
-                            </span>
-                        </a>
+                                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(212, 175, 55, 0.4)'"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(212, 175, 55, 0.3)'">
+                                <span class="d-flex align-items-center justify-content-center">
+                                    <span class="me-2">📞</span>
+                                    {{ 'Contact Us' }}
+                                </span>
+                            </a>
                         @endif
                         @if ($product->category->name_fr != 'Rideaux')
                             <form wire:submit.prevent="save">
@@ -61,7 +73,8 @@
 
                                 <div class="row g-4">
                                     <div class="col-md-6">
-                                        <label for="name" class="form-label fw-semibold">{{ __('Name') }}</label>
+                                        <label for="name"
+                                            class="form-label fw-semibold">{{ __('Name') }}</label>
                                         <input type="text" id="name" wire:model.defer="name"
                                             class="form-control" placeholder="{{ __('Enter your name') }}">
                                         @error('name')
@@ -80,6 +93,7 @@
                                     <div class="col-md-6">
                                         <label for="email"
                                             class="form-label fw-semibold">{{ __('Email') }}</label>
+                                        <span class="text-muted small">({{ __('optional') }})</span>
                                         <input type="email" placeholder="{{ __('Email') }}" id="email"
                                             wire:model.live="email" class="form-control">
                                         @error('email')
@@ -97,7 +111,7 @@
                                     </div>
                                     @if ($quantity && $product->category->name_fr == 'La Rail')
                                         <div class="col-md-12">
-                                            <h5 class="fw-bold">{{ __('Enter Dimensions') }}({{ __('metre') }})</h5>
+                                            <h5 class="fw-bold">{{ __('Enter Dimensions') }} : </h5><small class="ms-2">({{ __('The entered value will be rounded to the nearest standard dimension') }})</small>
                                             @foreach ($dimensions as $index => $dim)
                                                 <div class="row g-2 align-items-end mb-2">
                                                     <div class="col-md-6">
@@ -107,8 +121,8 @@
                                                     <div class="col-md-6">
                                                         <input type="number"
                                                             wire:model.live="dimensions.{{ $index }}.largeur"
-                                                            min="1" class="form-control"
-                                                            placeholder="{{ __('Largeur') }}">
+                                                            min="0.01" step="0.01"class="form-control"
+                                                            placeholder="{{ __('Largeur') }} ({{ __('metre') }})">
                                                         @error('dimensions.' . $index . '.largeur')
                                                             <span class="text-danger small">{{ $message }}</span>
                                                         @enderror
@@ -196,74 +210,87 @@
                         @endif
                     </div>
                 </div>
-            @else
-                <div class="col-12 text-center">
-                    <h4 class="text-black section-heading mb-3">{{ __('order_success') }}</h4>
-                    <br>
-                    <p class="text-black section-heading mb-0">
-                        {{ __('contact_confirmation') }}
-                    </p>
-                    <p class="mt-3">
-                        <a href="{{ route('client.product.index') }}" class="text-primary text-decoration-underline">
-                            {{ __('continue_shopping') }}
-                        </a>
-                    </p>
-                </div>
-            @endif
-        </div>
-    </section>
-
-    <section class="sections-bg-gradient container-fluid py-5">
-        <div class="container">
-
-            <h2 class="section-heading text-center mb-4" style="font-size: 25px;">
-                {{ __('Related Products') }}
-                <span class="heading-border-bottom" style="left: 0%; transform: none;"></span>
-            </h2>
-            <div id="relatedProductsCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    @foreach ($this->relatedProducts as $index => $product)
-                        @if ($index % 3 === 0)
-                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                <div class="row justify-content-center">
-                        @endif
-
-                        <div class="col-md-4 mb-3">
-                            <div class="card shadow-sm rounded-4 border-0">
-                                <img src="{{ asset('storage/' . $product->media->first()->url) }}"
-                                    class="related-products-img rounded-top-4"
-                                    alt="{{ $product->{'name_' . $language} }}">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">{{ $product->{'name_' . $language} }}</h5>
-                                    <p class="card-text text-muted small">
-                                        {{ Str::limit($product->{'description_' . $language}, 10) }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        @if (($index + 1) % 3 === 0 || $loop->last)
-                </div>
             </div>
-            @endif
-            @endforeach
-        </div>
+        </section>
 
-        {{-- Controls --}}
-        <button class="carousel-control-prev" type="button" data-bs-target="#relatedProductsCarousel"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-            <span class="visually-hidden">{{ __('Previous') }}</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#relatedProductsCarousel"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-            <span class="visually-hidden">{{ __('Next') }}</span>
-        </button>
+        <section class="sections-bg-gradient container-fluid py-5">
+            <div class="container">
+
+                <h2 class="section-heading text-center mb-4" style="font-size: 25px;">
+                    {{ __('Related Products') }}
+                    <span class="heading-border-bottom" style="left: 0%; transform: none;"></span>
+                </h2>
+                <div id="relatedProductsCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($this->relatedProducts as $index => $product)
+                            @if ($index % 3 === 0)
+                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                    <div class="row justify-content-center">
+                            @endif
+
+                            <div class="col-md-4 mb-3">
+                                <a href="{{ route('client.product.show', $product->id) }}"
+                                    class="text-decoration-none text-black">
+
+                                    <div class="card shadow-sm rounded-4 border-0 h-100">
+                                        <img src="{{ asset('storage/' . $product->media->first()->url) }}"
+                                            class="related-products-img rounded-top-4"
+                                            alt="{{ $product->{'name_' . $language} }}">
+                                        <div class="card-body text-end d-flex flex-column">
+                                            <h5 class="card-title">{{ $product->{'name_' . $language} }}</h5>
+                                            <p class="card-text text-muted small mb-2">
+                                                {{ Str::limit($product->{'description_' . $language}, 10) }}
+                                            </p>
+                                            <p class="fw-bold text-success fs-6 mt-auto">
+                                                {{ number_format($product->price, 2) }} {{ __('Currency') }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                            @if (($index + 1) % 3 === 0 || $loop->last)
+                    </div>
+                </div>
+    @endif
+    @endforeach
 </div>
 
+@if ($this->relatedProducts->count() > 3)
+    <button class="carousel-control-prev" type="button" data-bs-target="#relatedProductsCarousel"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        <span class="visually-hidden">{{ __('Previous') }}</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#relatedProductsCarousel"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        <span class="visually-hidden">{{ __('Next') }}</span>
+    </button>
+@endif
+</div>
 </div>
 </section>
+@else
+<section class="sections-bg-gradient container-fluid py-5">
+    <div class="container">
+        <div class="col-12 text-center">
+            <h4 class="text-black section-heading mb-3">{{ __('order_success') }}</h4>
+            <br>
+            <p class="text-black section-heading mb-0">
+                {{ __('contact_confirmation') }}
+            </p>
+            <p class="mt-3">
+                <a href="{{ route('client.product.index') }}" class="text-primary text-decoration-underline">
+                    {{ __('continue_shopping') }}
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+@endif
+
 </div>
 <script>
     const thumbnails = document.querySelectorAll('.thumbnail-image');
