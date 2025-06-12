@@ -47,7 +47,7 @@ class Create extends Component
             'descriptionAr' => 'required|string|max:255',
             'descriptionFr' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'category' => 'required|exists:Categories,id',
+            'category' => 'required|exists:categories,id',
             'available' => 'required|boolean',
         ];
     }

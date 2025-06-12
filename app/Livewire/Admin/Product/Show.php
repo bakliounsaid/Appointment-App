@@ -37,7 +37,7 @@ class Show extends Component
             'product.name_ar' => 'required|string|max:255',
             'product.description_ar' => 'required|string|max:255',
             'product.description_fr' => 'required|string|max:255',
-            'category' => 'required|exists:Categories,id',
+            'category' => 'required|exists:categories,id',
             'product.price' => 'required|numeric',
             'available' => 'required|boolean',
         ];
