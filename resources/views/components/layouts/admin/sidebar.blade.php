@@ -21,31 +21,25 @@
                         <i class="align-middle" data-feather="book"></i>
                         <span class="align-middle">{{ __('Pending Appointments') }}</span>
                         <span class="badge badge-warning position-absolute"
-                            style="color: blue">({{ $this->pending }})</span>
+                            style="color:orange">({{ $this->pending }})</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ request()->routeIs('admin.appointments.validated') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin.appointments.validated') }}">
                         <i class="align-middle" data-feather="bookmark"></i>
                         <span class="align-middle">{{ __('Confirmed Appointments') }}</span>
-                         <span class="badge badge-warning position-absolute"
-                            style="color:orange">({{ $this->confirmed }})</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ request()->routeIs('admin.appointments.ongoing') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin.appointments.ongoing') }}">
                         <i class="align-middle" data-feather="award"></i>
                         <span class="align-middle">{{ __('Ongoing Commands') }}</span>
-                         <span class="badge badge-warning position-absolute"
-                            style="color: green">({{ $this->ongoing }})</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ request()->routeIs('admin.appointments.archived') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin.appointments.archived') }}">
                         <i class="align-middle" data-feather="archive"></i>
                         <span class="align-middle">{{ __('Archived Commands') }}</span>
-                         <span class="badge badge-warning position-absolute"
-                            style="color: grey">({{ $this->archived }})</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ request()->routeIs('admin.program') ? 'active' : '' }}">

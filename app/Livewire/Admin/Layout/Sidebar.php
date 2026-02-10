@@ -4,6 +4,8 @@ namespace App\Livewire\Admin\Layout;
 
 use App\Models\Appointment;
 use App\Models\Order;
+use App\Models\Status;
+use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -22,33 +24,6 @@ class Sidebar extends Component
         return Appointment::whereHas('latestStatus', function ($query) {
             $query->whereHas('status', function ($query) {
                 $query->where('name', 'Pending');
-            });
-        })->count();
-    }
-        #[Computed()]
-    public function confirmed()
-    {
-        return Appointment::whereHas('latestStatus', function ($query) {
-            $query->whereHas('status', function ($query) {
-                $query->where('name', 'Validated');
-            });
-        })->count();
-    }
-    #[Computed()]
-        public function ongoing()
-    {
-        return Appointment::whereHas('latestStatus', function ($query) {
-            $query->whereHas('status', function ($query) {
-                $query->where('name', 'Ongoing');
-            });
-        })->count();
-    }
-       #[Computed()]
-        public function archived()
-    {
-        return Appointment::whereHas('latestStatus', function ($query) {
-            $query->whereHas('status', function ($query) {
-                $query->where('name', 'Archived');
             });
         })->count();
     }
