@@ -53,12 +53,12 @@
                         <p> <strong> {{ __('Requested Date') }} :<br>
                             </strong> {{ $appointment->formatted_client_date }}</p>
                     </div>
-                    @if ($appointment->admin_date && now() > $appointment->admin_date)
+                {{--     @if ($appointment->admin_date && now() > $appointment->admin_date)
                         <div class="col-md-6">
                             <p> <strong> {{ __('Confirmed Date') }} :
                                 </strong> {{ $appointment->formatted_admin_date }} </p>
                         </div>
-                    @else
+                    @else --}}
                         <div class="col-md-6">
                             <label for="adminDate" class="form-label">{{ __('Confirmed Date') }}</label>
                             <input type="date" class="form-control  @error('adminDate') is-invalid @enderror"
@@ -67,7 +67,7 @@
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
-                    @endif
+                  {{--   @endif --}}
                     @if ($appointment->latestStatus->status->name == 'Validated' && now() >= $appointment->admin_date)
                         <div class="col-md-6">
                             <label for="quotation" class="form-label">{{ __('Quotation') }}</label>
@@ -112,7 +112,7 @@
                             {{ __('Confirm Appointment') }}
                         </button>
                     </div>
-                @elseif($appointment->latestStatus->status->name == 'Validated' && now() < $appointment->admin_date)
+                @elseif($appointment->latestStatus->status->name == 'Validated')
                     <div class="d-grid gap-2 d-md-flex justify-content-end m-3">
                         <button wire:click ="confirme" wire:loading.attr="disabled" class="btn btn-primary btn-lg px-5">
                             <span wire:loading wire:target="confirme" class="spinner-border spinner-border-sm"
@@ -120,7 +120,8 @@
                             {{ __('Edit Appointment Date') }}
                         </button>
                     </div>
-                @elseif($appointment->latestStatus->status->name == 'Validated' && now() >= $appointment->admin_date)
+                    @endif
+                @if($appointment->latestStatus->status->name == 'Validated' && now() >= $appointment->admin_date)
                     <div class="d-grid gap-2 d-md-flex justify-content-end m-3">
                         <button wire:click="assembly" wire:loading.attr="disabled" class="btn btn-primary btn-lg px-5">
                             <span wire:loading wire:target="assembly" class="spinner-border spinner-border-sm"
