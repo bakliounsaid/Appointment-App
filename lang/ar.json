@@ -233,8 +233,6 @@
     "optional": "اختياري",
     "No products found.":"لم يتم العثور على منتجات.",
     "Confirm Phone One" : "تأكيد رقم الهاتف الأول",
-    "The entered value will be rounded to the nearest standard dimension":"سيتم تقريب القيمة المدخلة إلى أقرب بُعد قياسي"
-
-
-
+    "The entered value will be rounded to the nearest standard dimension":"سيتم تقريب القيمة المدخلة إلى أقرب بُعد قياسي",
+    "Date_preferee " :"التاريخ الذي تفضله"
 }

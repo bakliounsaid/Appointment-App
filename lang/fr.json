@@ -33,7 +33,7 @@
     "Select State": "Sélectionner la wilaya",
     "City": "Commune",
     "State": "Wilaya",
-    "Phone": "Téléphone",
+    "Phone": "Numéro du téléphone",
     "Lastname": "Nom de famille",
     "Firstname": "Prénom",
     "Request an appointment to discuss your work-related needs": "Demandez un rendez-vous pour discuter de vos besoins professionnels",
@@ -104,7 +104,7 @@
     "No assembly Commands has been found": "Aucune commande en réalisation n'a été trouvée",
     "Could not make more then foor assembly in same day!": "Impossible de réaliser plus de quatre montages le même jour !",
     "Quotation": "Devis",
-    "Name": "Nom",
+    "Name": "Nom Complet",
     "Quotations": "Devis",
     "Could not confirmed this appointment!": "Impossible de confirmer ce rendez-vous !",
     "Product Information": "Informations sur le produit",
@@ -231,6 +231,6 @@
     "optional": "Facultatif",
     "No products found.":"Aucun produit trouvé.",
     "Confirm Phone One" :"Confirmer Téléphone 1",
-    "The entered value will be rounded to the nearest standard dimension":"La valeur saisie sera arrondie à la dimension standard la plus proche"
-
+    "The entered value will be rounded to the nearest standard dimension":"La valeur saisie sera arrondie à la dimension standard la plus proche",
+    "Date_preferee " :"date de visite préférée"
 }

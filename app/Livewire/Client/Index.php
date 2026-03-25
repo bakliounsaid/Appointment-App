@@ -32,6 +32,7 @@ class Index extends Component
     public $windows = 1;
     public $successPage = false;
     public $phone_confirmation;
+    public $localisation;
 
     protected $rules = [
         'firstname'    => 'required|string|max:50',
@@ -59,13 +60,28 @@ class Index extends Component
 
     public function cities()
     {
-        return $this->state ?  State::find($this->state)->cities()->select('id', "{$this->locale}_name as name")->get() : [];
+         return $this->state ? State::find($this->state)
+        ->cities()
+        ->select('id', "{$this->locale}_name")
+        ->get()
+        : [];
     }
 
     #[Computed]
     public function states()
     {
-        return State::select("id", "{$this->locale}_name as name")->get();
+      return State::select("id", "{$this->locale}_name")->get();
+    }
+    public function incrementWindows()
+    {
+        $this->windows++;
+    }
+
+    public function decrementWindows()
+    {
+        if ($this->windows > 1) {
+            $this->windows--;
+        }
     }
     public function save()
     {
@@ -77,7 +93,7 @@ class Index extends Component
             $appointment->firstname    = $this->firstname;
             $appointment->lastname     = $this->lastname;
             $appointment->phone        = $this->phone;
-            $appointment->email        = $this->email;
+            $appointment->email        = $this->email ?? null;
             $appointment->localisation = $this->localisation  ?? null;
             $appointment->address      = $this->address ?? null;
             $appointment->phone2      = $this->phoneTwo ?? null;

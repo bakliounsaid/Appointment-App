@@ -67,22 +67,22 @@
                         </a>
                     @endif
                     @if ($product->category->name_fr != 'Rideaux')
-                        <form wire:submit.prevent="save">
+                        <form wire:submit.prevent="save" >
                             @csrf
 
                             <div class="row g-4">
                                 <div class="col-md-6">
                                     <label for="name" class="form-label fw-semibold">{{ __('Name') }}</label>
                                     <input type="text" id="name" wire:model.defer="name" class="form-control"
-                                        placeholder="{{ __('Enter your name') }}">
+                                        placeholder="{{ __('Name') }}">
                                     @error('name')
                                         <span class="text-danger small">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="phone" class="form-label fw-semibold">{{ __('Phone') }}</label>
-                                    <input type="tel" id="phone" wire:model.defer="phone" class="form-control"
-                                        placeholder="{{ __('Enter your phone number') }}">
+                                    <input type="text" id="phone" wire:model.defer="phone" class="form-control"
+                                        placeholder="{{ __('Phone') }}">
                                     @error('phone')
                                         <span class="text-danger small">{{ $message }}</span>
                                     @enderror
@@ -96,14 +96,20 @@
                                         <span class="text-danger small">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="quantity" class="form-label fw-semibold">{{ __('Quantity') }}</label>
-                                    <input type="number" id="quantity" placeholder="{{ __('Quantity') }}"
-                                        wire:model.live="quantity" min="1" class="form-control">
-                                    @error('quantity')
-                                        <span class="text-danger small">{{ $message }}</span>
-                                    @enderror
-                                </div>
+                              <div class="col-md-6">
+                                        <label class="form-label fw-semibold">{{ __('Quantity') }}</label>
+
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                wire:click="incrementQuantity">+</button>
+                                                     <button class="btn btn-outline-secondary" type="button"
+                                                wire:click="decrementQuantity">−</button>
+                                            <input type="text" class="form-control text-center fw-bold"
+                                                value="{{ $quantity }}" readonly>
+
+                                        </div>
+                                          </div>
+
                                 @if ($quantity && $product->category->name_fr == 'La Rail')
                                     <div class="col-md-12">
                                         <h5 class="fw-bold">{{ __('Enter Dimensions') }} : </h5><small

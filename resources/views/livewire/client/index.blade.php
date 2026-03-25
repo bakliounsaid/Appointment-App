@@ -17,66 +17,59 @@
                             @if (!$successPage)
                                 <div class="row g-4">
                                     <div class="col-md-6">
-                                        <label class="form-label">{{ __('Firstname') }}</label>
-                                        <input type="text" placeholder="{{ __('Firstname') }}"
+{{--                                         <label class="form-label">{{ __('Firstname') }}</label>
+ --}}                                        <input type="text" placeholder="{{ __('Firstname') }}"
                                             wire:model.defer="firstname">
                                         @error('firstname')
                                             <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">{{ __('Lastname') }}</label>
-                                        <input type="text" placeholder="{{ __('Lastname') }}"
+{{--                                         <label class="form-label">{{ __('Lastname') }}</label>
+ --}}                                        <input type="text" placeholder="{{ __('Lastname') }}"
                                             wire:model.defer="lastname">
                                         @error('lastname')
                                             <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">{{ __('Phone One') }}</label>
-                                        <input type="text" placeholder="{{ __('Phone One') }}"
+{{--                                         <label class="form-label">{{ __('Phone One') }}</label>
+ --}}                                        <input type="text" placeholder="{{ __('Phone One') }}"
                                             wire:model.defer="phone">
                                         @error('phone')
                                             <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">{{ __('Confirm Phone One') }}</label>
-                                        <input type="text" placeholder="{{ __('Confirm Phone One') }}"
+{{--                                         <label class="form-label">{{ __('Confirm Phone One') }}</label>
+ --}}                                        <input type="text" placeholder="{{ __('Confirm Phone One') }}"
                                             wire:model.defer="phone_confirmation">
                                         @error('phone_confirmation')
                                             <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">{{ __('Phone Two') }}</label>
-                                        <span class="text-muted small">({{ __('optional') }})</span>
+                                       {{--  <label class="form-label">{{ __('Phone Two') }}</label>
+                                        <span class="text-muted small">({{ __('optional') }})</span> --}}
 
-                                        <input type="text" placeholder="{{ __('Phone Two') }}"
+                                        <input type="text" placeholder="{{ __('Phone Two') }}({{ __('optional') }})"
                                             wire:model.defer="phoneTwo">
                                         @error('phoneTwo')
                                             <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">{{ __('Windows Number') }}</label>
-                                        <input type="number" min="1" placeholder="{{ __('Windows Number') }}"
-                                            wire:model.defer="windows">
-                                        @error('windows')
-                                            <span class="text-danger small">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">{{ __('Email') }}</label>
-                                        <span class="text-muted small">({{ __('optional') }})</span>
+                                         <div class="col-md-6">
+                                        {{-- <label class="form-label">{{ __('Email') }}</label>
+                                        <span class="text-muted small">({{ __('optional') }})</span> --}}
 
-                                        <input type="email" placeholder="{{ __('Email') }}"
+                                        <input type="email" placeholder="{{ __('Email') }} ({{ __('optional') }})"
                                             wire:model.defer="email">
                                         @error('email')
                                             <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                      <div class="col-md-6">
+
+                {{--                     <div class="col-md-6">
                                         <label class="form-label">{{ __('Address') }}</label>
                                         <span class="text-muted small">({{ __('optional') }})</span>
 
@@ -85,7 +78,7 @@
                                         @error('address')
                                             <span class="text-danger small">{{ $message }}</span>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-6">
                                         <label class="form-label">{{ __('State') }}</label>
                                         <div class="input-group">
@@ -100,7 +93,7 @@
                                             <select class="form-select" wire:model.live="state">
                                                 <option value="">{{ __('Select State') }}</option>
                                                 @foreach ($this->states as $state)
-                                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                                    <option value="{{ $state->id }}">{{ $state->{$this->locale . '_name'} }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -122,7 +115,7 @@
                                             <select class="form-select" wire:model.defer="city">
                                                 <option value="">{{ __('Select City') }}</option>
                                                 @foreach ($this->cities as $city)
-                                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                                    <option value="{{ $city->id }}">{{ $city->{$this->locale . '_name'} }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -131,7 +124,8 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-md-6">
+
+                            {{--         <div class="col-md-6">
                                         <label class="form-label">{{ __('Localisation') }}(GPS)</label>
                                         <span class="text-muted small">({{ __('optional') }})</span>
 
@@ -140,9 +134,9 @@
                                         @error('location')
                                             <span class="text-danger small">{{ $message }}</span>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-6">
-                                        <label class="form-label">{{ __('Date') }}</label>
+                                        <label class="form-label">{{ __('Date_preferee ') }}</label>
                                         <div class="input-group">
                                             <span class="input-group-text bg-gold-500">
                                                 <svg width="20" height="20" fill="currentColor"
@@ -156,6 +150,21 @@
                                                 class="form-control border-gold-500" id="departureDate">
                                         </div>
                                         @error('date')
+                                            <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                      <div class="col-md-6">
+                                        <label class="form-label">{{ __('Windows Number') }}</label>
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                wire:click="incrementWindows">+</button>
+                                                 <button class="btn btn-outline-secondary" type="button"
+                                                wire:click="decrementWindows">−</button>
+                                            <input type="text" class="form-control text-center fw-bold"
+                                                value="{{ $windows }}" readonly>
+                                        </div>
+
+                                        @error('windows')
                                             <span class="text-danger small">{{ $message }}</span>
                                         @enderror
                                     </div>
