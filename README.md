@@ -35,4 +35,5 @@ This project was built as a freelance developer for a real client, covering the 
 
 ## Author
 
+
 Developed by Baklioun Essaid — [Portfolio](https://bakliounessaid.netlify.app) · [LinkedIn](https://linkedin.com/in/baklioun-essaid)
