@@ -234,5 +234,19 @@
     "No products found.":"لم يتم العثور على منتجات.",
     "Confirm Phone One" : "تأكيد رقم الهاتف الأول",
     "The entered value will be rounded to the nearest standard dimension":"سيتم تقريب القيمة المدخلة إلى أقرب بُعد قياسي",
-    "Date_preferee " :"التاريخ الذي تفضله"
+    "Date_preferee " :"التاريخ الذي تفضله",
+    "FullName": "الاسم الكامل",
+    "Submit":"إرسال",
+    "We will contact you within 24 hours.": "سنتواصل معك خلال 24 ساعة.",
+    "Have a curtain, blind, or sheer project in mind? Fill out this form and we'll get back to you within 24 hours with a free, no-obligation quote": "هل لديك مشروع ستائر أو ستائر شفافة أو مصبعات؟ املأ هذا النموذج وسنتواصل معك خلال 24 ساعة لتقديم عرض سعر مجاني وبدون التزام.",
+    "Let Us Install Your Curtains": "دعنا نقوم بتركيب ستائرك",
+    "Thank you! Your request has been successfully registered":"شكراً لك! تم تسجيل طلبك بنجاح.",
+    "Already registered!": "أنت مسجل بالفعل!",
+    "You have been registered!": "تم تسجيلك بنجاح!",
+    "Could not register try again!": "تعذر التسجيل، حاول مرة أخرى!",
+    "Please try again!": "يرجى المحاولة مرة أخرى!",
+    "Searching...": "جاري البحث...",
+    "Locate me": "حدد موقعي",
+    "See on Maps": "عرض على الخريطة"
+
 }

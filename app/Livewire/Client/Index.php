@@ -6,11 +6,13 @@ use App\Mail\NewAppointment;
 use App\Models\Appointment;
 use App\Models\State;
 use App\Models\Status;
+use Http;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Throwable;
 
@@ -32,7 +34,6 @@ class Index extends Component
     public $windows = 1;
     public $successPage = false;
     public $phone_confirmation;
-    public $localisation;
 
     protected $rules = [
         'firstname'    => 'required|string|max:50',
@@ -47,7 +48,7 @@ class Index extends Component
         'location'     => 'nullable|string|max:255',
         'description'  => 'nullable|string|max:1000',
         'date' => 'required|date',
-        'windows'=> 'integer|min:1'
+        'windows' => 'integer|min:1'
     ];
 
     public function mount()
@@ -56,21 +57,43 @@ class Index extends Component
         $this->locale = app()->getLocale();
         $this->pending = Status::where('name', 'Pending')->first();
     }
+
+
+    #[On('locationDetected')]
+    public function setLocation($lat, $lng)
+    {
+
+        $this->location = $this->reverseGeocode($lat, $lng);
+    }
+
+    private function reverseGeocode(float $lat, float $lng): string
+    {
+        $response = Http::get('https://nominatim.openstreetmap.org/reverse', [
+            'lat' => $lat,
+            'lon' => $lng,
+            'format' => 'json',
+        ]);
+
+        return $response->successful()
+            ? ($response->json('display_name') ?? "{$lat}, {$lng}")
+            : "{$lat}, {$lng}";
+    }
+
     #[Computed]
 
     public function cities()
     {
-         return $this->state ? State::find($this->state)
-        ->cities()
-        ->select('id', "{$this->locale}_name")
-        ->get()
-        : [];
+        return $this->state ? State::find($this->state)
+            ->cities()
+            ->select('id', "{$this->locale}_name")
+            ->get()
+            : [];
     }
 
     #[Computed]
     public function states()
     {
-      return State::select("id", "{$this->locale}_name")->get();
+        return State::select("id", "{$this->locale}_name")->get();
     }
     public function incrementWindows()
     {
@@ -89,28 +112,28 @@ class Index extends Component
 
         try {
             DB::transaction(function () {
-            $appointment = new Appointment();
-            $appointment->firstname    = $this->firstname;
-            $appointment->lastname     = $this->lastname;
-            $appointment->phone        = $this->phone;
-            $appointment->email        = $this->email ?? null;
-            $appointment->localisation = $this->localisation  ?? null;
-            $appointment->address      = $this->address ?? null;
-            $appointment->phone2      = $this->phoneTwo ?? null;
-            $appointment->description      = $this->description ?? null;
-            $appointment->windows = $this->windows;
-            $appointment->client_date  = $this->date;
-            $appointment->city()->associate($this->city);
-            $appointment->save();
-            $appointment->statuses()->attach($this->pending->id);
-            $appointment->save();
-            Mail::to("Chaimarideaux@gmail.com")->send(new NewAppointment($appointment));
-            $this->dispatch('show-toast-alert', [
-                "text" => __('Appointment Created successfully!'),
-                'icon' => "success"
-            ]);
-            $this->successPage = true;
-           });
+                $appointment = new Appointment();
+                $appointment->firstname    = $this->firstname;
+                $appointment->lastname     = $this->lastname;
+                $appointment->phone        = $this->phone;
+                $appointment->email        = $this->email ?? null;
+                $appointment->address      = $this->address ?? null;
+                $appointment->phone2      = $this->phoneTwo ?? null;
+                $appointment->description      = $this->description ?? null;
+                $appointment->windows = $this->windows;
+                $appointment->client_date  = $this->date;
+                $appointment->localisation = $this->location ?? null;
+                $appointment->city()->associate($this->city);
+                $appointment->save();
+                $appointment->statuses()->attach($this->pending->id);
+                $appointment->save();
+                Mail::to("Chaimarideaux@gmail.com")->send(new NewAppointment($appointment));
+                $this->dispatch('show-toast-alert', [
+                    "text" => __('Appointment Created successfully!'),
+                    'icon' => "success"
+                ]);
+                $this->successPage = true;
+            });
         } catch (Throwable $th) {
             Log::alert($th->getMessage());
             $this->dispatch('show-toast-alert', [

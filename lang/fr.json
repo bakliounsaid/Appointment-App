@@ -232,5 +232,18 @@
     "No products found.":"Aucun produit trouvé.",
     "Confirm Phone One" :"Confirmer Téléphone 1",
     "The entered value will be rounded to the nearest standard dimension":"La valeur saisie sera arrondie à la dimension standard la plus proche",
-    "Date_preferee " :"date de visite préférée"
+    "Date_preferee " :"Date de visite préférée",
+    "FullName": "Nom complet",
+    "Submit": "Envoyer",
+    "We will contact you within 24 hours.": "Nous vous recontacterons sous 24h.",
+    "Have a curtain, blind, or sheer project in mind? Fill out this form and we'll get back to you within 24 hours with a free, no-obligation quote": "Un projet de rideaux, stores ou voilages ? Remplissez ce formulaire et nous vous recontactons sous 24h pour un devis gratuit et sans engagement.",
+    "Let Us Install Your Curtains": "Confiez-nous la pose de vos rideaux",
+    "Thank you! Your request has been successfully registered":"Merci ! Votre demande a bien été enregistrée",
+     "Already registered!": "Déjà enregistré !",
+    "You have been registered!": "Vous avez été enregistré !",
+    "Could not register try again!": "Impossible de vous enregistrer, réessayez !",
+    "Please try again!": "Veuillez réessayer !",
+    "Searching...": "Recherche...",
+    "Locate me": "Me localiser",
+    "See on Maps": "Voir sur Maps"
 }

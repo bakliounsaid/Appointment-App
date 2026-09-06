@@ -35,8 +35,17 @@
                     </div>
 
                     <div class="col-md-4">
-                        <p> <strong>{{ __('Localisation') }}(GPS) :
-                            </strong> {{ $appointment->localisation ?? '/' }}</p>
+                        <p>
+                            <strong>{{ __('Localisation') }} (GPS) :</strong>
+                            @if ($appointment->localisation)
+                                <a href="https://www.google.com/maps?q={{ $appointment->localisation }}"
+                                    target="_blank" class="btn btn-primary btn-sm px-1">
+                                    {{ __('See on Maps') }}
+                                </a>
+                            @else
+                                /
+                            @endif
+                        </p>
                     </div>
                     <div class="col-md-4">
                         <p> <strong> {{ __('Windows Number') }} :
@@ -53,21 +62,21 @@
                         <p> <strong> {{ __('Requested Date') }} :<br>
                             </strong> {{ $appointment->formatted_client_date }}</p>
                     </div>
-                {{--     @if ($appointment->admin_date && now() > $appointment->admin_date)
+                    {{--     @if ($appointment->admin_date && now() > $appointment->admin_date)
                         <div class="col-md-6">
                             <p> <strong> {{ __('Confirmed Date') }} :
                                 </strong> {{ $appointment->formatted_admin_date }} </p>
                         </div>
                     @else --}}
-                        <div class="col-md-6">
-                            <label for="adminDate" class="form-label">{{ __('Confirmed Date') }}</label>
-                            <input type="date" class="form-control  @error('adminDate') is-invalid @enderror"
-                                id="adminDate" wire:model.defer="adminDate">
-                            @error('adminDate')
-                                <span class="invalid-feedback">{{ $message }}</span>
-                            @enderror
-                        </div>
-                  {{--   @endif --}}
+                    <div class="col-md-6">
+                        <label for="adminDate" class="form-label">{{ __('Confirmed Date') }}</label>
+                        <input type="date" class="form-control  @error('adminDate') is-invalid @enderror"
+                            id="adminDate" wire:model.defer="adminDate">
+                        @error('adminDate')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    {{--   @endif --}}
                     @if ($appointment->latestStatus->status->name == 'Validated' && now() >= $appointment->admin_date)
                         <div class="col-md-6">
                             <label for="quotation" class="form-label">{{ __('Quotation') }}</label>
@@ -120,8 +129,8 @@
                             {{ __('Edit Appointment Date') }}
                         </button>
                     </div>
-                    @endif
-                @if($appointment->latestStatus->status->name == 'Validated' && now() >= $appointment->admin_date)
+                @endif
+                @if ($appointment->latestStatus->status->name == 'Validated' && now() >= $appointment->admin_date)
                     <div class="d-grid gap-2 d-md-flex justify-content-end m-3">
                         <button wire:click="assembly" wire:loading.attr="disabled" class="btn btn-primary btn-lg px-5">
                             <span wire:loading wire:target="assembly" class="spinner-border spinner-border-sm"

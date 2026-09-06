@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10885f8cec30f537f54113a5c9610052",
+    "content-hash": "614afb4417086e86d3e20a51240e2ef5",
     "packages": [
         {
             "name": "brick/math",
@@ -1053,6 +1053,66 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "hubspot/api-client",
+            "version": "14.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HubSpot/hubspot-api-php.git",
+                "reference": "913fcc97f0e795fbe66bbe8ed2e9c9bf6cc45b8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HubSpot/hubspot-api-php/zipball/913fcc97f0e795fbe66bbe8ed2e9c9bf6cc45b8f",
+                "reference": "913fcc97f0e795fbe66bbe8ed2e9c9bf6cc45b8f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^7.3",
+                "guzzlehttp/psr7": "^1.7 || ^2.0",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "phpspec/phpspec": "^8.2",
+                "phpunit/phpunit": "^11.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HubSpot\\": "lib/",
+                    "Hubspot\\Tests\\": "tests/",
+                    "HubSpot\\Client\\": "codegen/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "HubSpot",
+                    "homepage": "https://hubspot.com/"
+                }
+            ],
+            "description": "Hubspot API client",
+            "homepage": "https://hubspot.com/",
+            "keywords": [
+                "api",
+                "hubspot",
+                "php",
+                "sdk",
+                "swagger"
+            ],
+            "support": {
+                "issues": "https://github.com/HubSpot/hubspot-api-php/issues",
+                "source": "https://github.com/HubSpot/hubspot-api-php/tree/14.1.0"
+            },
+            "time": "2026-05-12T06:29:16+00:00"
         },
         {
             "name": "intervention/gif",
