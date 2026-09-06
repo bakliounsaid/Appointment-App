@@ -1,4 +1,4 @@
-<section class="sections-bg-gradient container-fluid" id="products" style="padding: 100px 0;">
+<section class="sections-bg-gradient container-fluid" id="products" style="padding: 100px 0; background-image: url('{{ asset('images/bg/5.png') }}');">
     <div class="container position-relative z-3">
         <div class="row text-center mb-5">
             <div class="col-12">
@@ -111,22 +111,3 @@
         @endif
     </div>
 </section>
-
-{{-- Background image rotation --}}
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const section = document.getElementById("products");
-        const images = [
-            "{{ asset('images/bg/5.png') }}",
-            "{{ asset('images/bg/6.png') }}"
-        ];
-
-        let index = 0;
-        section.style.backgroundImage = `url(${images[index]})`;
-
-        setInterval(() => {
-            index = (index + 1) % images.length;
-            section.style.backgroundImage = `url(${images[index]})`;
-        }, 4000);
-    });
-</script>
