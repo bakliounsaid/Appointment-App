@@ -1,4 +1,4 @@
-    <section class="sections-bg-gradient appointment-section container-fluid" id="contact" style="padding: 100px 0;">
+    <section class="sections-bg-gradient appointment-section container-fluid" id="contact" style="padding: 100px 0; background-image: url('{{ asset('images/bg/5.png') }}');">
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-12">
@@ -127,20 +127,3 @@
         </div>
     </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const section = document.getElementById("contact");
-
-            const images = [
-                "{{ asset('images/bg/5.png') }}",
-            ];
-
-            let index = 0;
-            section.style.backgroundImage = `url(${images[index]})`;
-
-            setInterval(() => {
-                index = (index + 1) % images.length;
-                section.style.backgroundImage = `url(${images[index]})`;
-            }, 4000);
-        });
-    </script>
